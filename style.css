@@ -1,0 +1,9303 @@
+/* =====================================================
+   MPOWERTALK
+   CINEMATIC OPENING LOADER
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background: #fcfbf3;
+}
+
+
+/* =====================================================
+   MAIN LOADER
+===================================================== */
+
+.loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            #ffffff 0%,
+            #fffef7 45%,
+            #f7f6ea 100%
+        );
+
+    z-index: 99999;
+}
+
+
+/* =====================================================
+   CENTER GLOW
+===================================================== */
+
+.glow {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(225, 205, 0, 0.18),
+            rgba(104, 139, 0, 0.08),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    opacity: 0;
+
+    animation:
+        glowIn 6s ease-in-out 0.3s forwards;
+}
+
+
+@keyframes glowIn {
+
+    0% {
+        opacity: 0;
+        transform: scale(.45);
+    }
+
+    35% {
+        opacity: .75;
+        transform: scale(.9);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: .45;
+        transform: scale(1.3);
+    }
+}
+
+
+/* =====================================================
+   BACKGROUND RINGS
+===================================================== */
+
+.ring {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.25);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.ring-1 {
+
+    width: 330px;
+    height: 330px;
+
+    border: 1px solid rgba(104, 139, 0, .14);
+
+    animation:
+        ringReveal
+        7.5s
+        cubic-bezier(.16, 1, .3, 1)
+        .2s
+        forwards;
+}
+
+
+.ring-2 {
+
+    width: 550px;
+    height: 550px;
+
+    border: 1px solid rgba(220, 198, 0, .12);
+
+    animation:
+        ringReveal
+        8s
+        cubic-bezier(.16, 1, .3, 1)
+        .5s
+        forwards;
+}
+
+
+.ring-3 {
+
+    width: 780px;
+    height: 780px;
+
+    border: 1px solid rgba(30, 30, 30, .055);
+
+    animation:
+        ringReveal
+        8.5s
+        cubic-bezier(.16, 1, .3, 1)
+        .8s
+        forwards;
+}
+
+
+@keyframes ringReveal {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(.25)
+            rotate(0deg);
+    }
+
+    35% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(180deg);
+    }
+}
+
+
+/* =====================================================
+   FLOATING DOTS
+===================================================== */
+
+.dot {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+}
+
+
+.dot-1 {
+    top: 22%;
+    left: 16%;
+    background: #dfc900;
+
+    animation:
+        floatDot 4s ease-in-out 1s infinite;
+}
+
+
+.dot-2 {
+    top: 28%;
+    right: 17%;
+    background: #6d9000;
+
+    animation:
+        floatDot 4.5s ease-in-out 1.5s infinite;
+}
+
+
+.dot-3 {
+    bottom: 23%;
+    left: 21%;
+    background: #202020;
+
+    animation:
+        floatDot 4.2s ease-in-out 2s infinite;
+}
+
+
+.dot-4 {
+    bottom: 26%;
+    right: 20%;
+    background: #dfc900;
+
+    animation:
+        floatDot 4.7s ease-in-out 2.5s infinite;
+}
+
+
+@keyframes floatDot {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(0, 20px)
+            scale(.3);
+    }
+
+    30% {
+        opacity: .7;
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translate(12px, -15px)
+            scale(1);
+    }
+
+    80% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-8px, -30px)
+            scale(.3);
+    }
+}
+
+
+/* =====================================================
+   LOGO AREA
+===================================================== */
+
+.logo-area {
+
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(10px);
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    white-space: nowrap;
+
+    perspective: 800px;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter {
+
+    display: inline-block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(
+            62px,
+            9.5vw,
+            132px
+        );
+
+    font-weight: 700;
+
+    line-height: .82;
+
+    letter-spacing: -7px;
+
+    opacity: 0;
+
+    transform:
+        translateY(180px)
+        rotateX(75deg)
+        scale(.65);
+
+    filter: blur(12px);
+
+    animation:
+        letterRise
+        1.7s
+        cubic-bezier(.16, 1, .3, 1)
+        forwards;
+}
+
+
+/* =====================================================
+   BRAND COLOURS
+===================================================== */
+
+.m {
+    color: #e4ca00;
+}
+
+.p {
+    color: #648900;
+}
+
+.o {
+    color: #648900;
+}
+
+.w {
+    color: #171717;
+}
+
+.e {
+    color: #648900;
+}
+
+.r {
+    color: #648900;
+}
+
+.t {
+    color: #e4ca00;
+}
+
+.a {
+    color: #e4ca00;
+}
+
+.l {
+    color: #e4ca00;
+}
+
+.k {
+    color: #e4ca00;
+}
+
+
+/* =====================================================
+   SLOW LETTER SEQUENCE
+===================================================== */
+
+.m {
+    animation-delay: .45s;
+}
+
+.p {
+    animation-delay: .85s;
+}
+
+.o {
+    animation-delay: 1.20s;
+}
+
+.w {
+    animation-delay: 1.55s;
+}
+
+.e {
+    animation-delay: 1.90s;
+}
+
+.r {
+    animation-delay: 2.25s;
+}
+
+.t {
+    animation-delay: 2.60s;
+}
+
+.a {
+    animation-delay: 2.95s;
+}
+
+.l {
+    animation-delay: 3.30s;
+}
+
+.k {
+    animation-delay: 3.65s;
+}
+
+
+/* =====================================================
+   LETTER RISE ANIMATION
+===================================================== */
+
+@keyframes letterRise {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(180px)
+            rotateX(75deg)
+            scale(.65);
+
+        filter: blur(12px);
+    }
+
+    35% {
+
+        opacity: .25;
+
+    }
+
+    65% {
+
+        opacity: 1;
+
+        transform:
+            translateY(-12px)
+            rotateX(0deg)
+            scale(1.035);
+
+        filter: blur(0);
+    }
+
+    82% {
+
+        transform:
+            translateY(5px)
+            rotateX(0deg)
+            scale(.985);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotateX(0deg)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* =====================================================
+   UNDERLINE
+===================================================== */
+
+.underline {
+
+    width:
+        clamp(
+            190px,
+            31vw,
+            390px
+        );
+
+    height: 3px;
+
+    margin-top: 22px;
+
+    overflow: hidden;
+
+    transform: skewX(-20deg);
+
+}
+
+
+.underline span {
+
+    display: block;
+
+    width: 0;
+
+    height: 100%;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e4ca00,
+            #729300,
+            #e4ca00
+        );
+
+    animation:
+        underlineDraw
+        1.5s
+        cubic-bezier(.65, 0, .35, 1)
+        4.55s
+        forwards;
+}
+
+
+@keyframes underlineDraw {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   PEOPLE / IDEAS / INSPIRATION
+===================================================== */
+
+.keywords {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 24px;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px)
+        scale(.95);
+
+    animation:
+        keywordsReveal
+        1.2s
+        cubic-bezier(.16, 1, .3, 1)
+        4.85s
+        forwards;
+}
+
+
+.keywords span {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(
+            9px,
+            1.2vw,
+            13px
+        );
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #65655b;
+}
+
+
+.keywords b {
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    color: #d9c300;
+}
+
+
+@keyframes keywordsReveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(.95);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+}
+
+
+/* =====================================================
+   EXIT
+===================================================== */
+
+.exit-layer {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background: #fcfbf3;
+
+    transform:
+        scaleY(0);
+
+    transform-origin: bottom;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .letter {
+
+        font-size:
+            clamp(
+                40px,
+                12vw,
+                65px
+            );
+
+        letter-spacing: -4px;
+    }
+
+
+    .brand {
+
+        transform: scale(.92);
+    }
+
+
+    .underline {
+
+        width: 220px;
+
+        height: 2px;
+
+        margin-top: 15px;
+    }
+
+
+    .keywords {
+
+        gap: 8px;
+
+        margin-top: 18px;
+    }
+
+
+    .keywords span {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .keywords b {
+
+        font-size: 8px;
+    }
+
+
+    .glow {
+
+        width: 280px;
+        height: 280px;
+    }
+
+
+    .ring-1 {
+
+        width: 260px;
+        height: 260px;
+    }
+
+
+    .ring-2 {
+
+        width: 420px;
+        height: 420px;
+    }
+
+
+    .ring-3 {
+
+        width: 590px;
+        height: 590px;
+    }
+
+
+    .dot-1 {
+        left: 8%;
+    }
+
+    .dot-2 {
+        right: 8%;
+    }
+
+    .dot-3 {
+        left: 12%;
+    }
+
+    .dot-4 {
+        right: 12%;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 390px) {
+
+    .letter {
+
+        font-size: 35px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .brand {
+
+        transform: scale(.88);
+    }
+
+
+    .keywords {
+
+        gap: 6px;
+    }
+
+
+    .keywords span {
+
+        font-size: 6px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .underline {
+
+        width: 180px;
+    }
+
+}
+
+
+/* =====================================================
+   MPOWERTALK — COMPLETE ANIMATED NAVBAR
+   DESKTOP + MOBILE
+===================================================== */
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-30px)
+        scale(.98);
+
+    pointer-events: none;
+
+    transition:
+        opacity .8s ease,
+        transform .9s cubic-bezier(.16,1,.3,1),
+        visibility 0s linear .9s;
+}
+
+
+body.site-ready .site-header {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+
+    transition:
+        opacity .8s ease,
+        transform .9s cubic-bezier(.16,1,.3,1),
+        visibility 0s linear 0s;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    width:
+        calc(100% - 50px);
+
+    max-width:
+        1500px;
+
+    min-height:
+        72px;
+
+    margin:
+        22px auto 0;
+
+    padding:
+        0 10px 0 22px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(255,255,248,.94);
+
+    border:
+        1px solid
+        rgba(104,139,0,.16);
+
+    border-radius:
+        50px;
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 12px 45px
+        rgba(104,139,0,.08);
+
+    overflow:
+        hidden;
+
+    transition:
+        margin .45s ease,
+        min-height .45s ease,
+        background .45s ease,
+        box-shadow .45s ease,
+        transform .45s ease;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.nav-brand {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        baseline;
+
+    text-decoration:
+        none;
+
+    white-space:
+        nowrap;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size:
+        22px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -2px;
+
+    line-height:
+        1;
+
+    opacity:
+        0;
+
+    filter:
+        blur(8px);
+
+    transform:
+        translateX(-70px)
+        rotate(-2deg)
+        scale(.92);
+
+    transition:
+        opacity .8s ease,
+        transform .95s cubic-bezier(.16,1,.3,1),
+        filter .8s ease;
+}
+
+
+body.site-ready .nav-brand {
+
+    opacity:
+        1;
+
+    filter:
+        blur(0);
+
+    transform:
+        translateX(0)
+        rotate(0)
+        scale(1);
+
+    transition-delay:
+        .05s;
+}
+
+
+/* =====================================================
+   LOGO COLOURS
+===================================================== */
+
+.logo-m {
+
+    position:
+        relative;
+
+    color:
+        #e4ca00;
+
+    font-size:
+        25px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -3px;
+}
+
+
+.logo-power {
+
+    color:
+        #648900;
+
+    font-weight:
+        800;
+}
+
+
+.logo-talk {
+
+    color:
+        #e4ca00;
+
+    font-weight:
+        800;
+
+    margin-left:
+        5px;
+}
+
+
+/* =====================================================
+   DESKTOP NAVIGATION
+===================================================== */
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        28px;
+
+    margin-left:
+        auto;
+
+    margin-right:
+        30px;
+
+    perspective:
+        800px;
+}
+
+
+.nav-link {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    text-decoration:
+        none;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    color:
+        #25291b;
+
+    padding:
+        10px 0;
+
+    opacity:
+        0;
+
+    filter:
+        blur(7px);
+
+    transform:
+        translateX(-55px)
+        translateY(8px)
+        rotateY(12deg)
+        scale(.94);
+
+    transition:
+        opacity .7s ease,
+        transform .9s cubic-bezier(.16,1,.3,1),
+        filter .7s ease,
+        color .3s ease;
+}
+
+
+/* EVEN LINKS FROM RIGHT */
+
+.nav-link:nth-child(even) {
+
+    transform:
+        translateX(55px)
+        translateY(8px)
+        rotateY(-12deg)
+        scale(.94);
+}
+
+
+/* =====================================================
+   DESKTOP NAV REVEAL
+===================================================== */
+
+body.site-ready .nav-link {
+
+    opacity:
+        1;
+
+    filter:
+        blur(0);
+
+    transform:
+        translateX(0)
+        translateY(0)
+        rotateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   STAGGER
+===================================================== */
+
+body.site-ready .nav-link:nth-child(1) {
+    transition-delay: .30s;
+}
+
+body.site-ready .nav-link:nth-child(2) {
+    transition-delay: .40s;
+}
+
+body.site-ready .nav-link:nth-child(3) {
+    transition-delay: .50s;
+}
+
+body.site-ready .nav-link:nth-child(4) {
+    transition-delay: .60s;
+}
+
+body.site-ready .nav-link:nth-child(5) {
+    transition-delay: .70s;
+}
+
+body.site-ready .nav-link:nth-child(6) {
+    transition-delay: .80s;
+}
+
+
+/* =====================================================
+   NAV TEXT
+===================================================== */
+
+.nav-text {
+
+    position:
+        relative;
+
+    display:
+        inline-block;
+
+    transition:
+        transform .4s
+        cubic-bezier(.16,1,.3,1),
+        letter-spacing .4s ease;
+}
+
+
+/* =====================================================
+   YELLOW DOT
+===================================================== */
+
+.nav-dot {
+
+    position:
+        absolute;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        #e4ca00;
+
+    right:
+        -10px;
+
+    top:
+        4px;
+
+    opacity:
+        0;
+
+    transform:
+        scale(0);
+
+    transition:
+        opacity .3s ease,
+        transform .4s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =====================================================
+   DESKTOP HOVER
+===================================================== */
+
+.nav-link:hover {
+
+    color:
+        #648900;
+}
+
+
+.nav-link:hover .nav-text {
+
+    transform:
+        translateX(5px);
+
+    letter-spacing:
+        .2px;
+}
+
+
+.nav-link:hover .nav-dot {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1);
+}
+
+
+/* =====================================================
+   HOVER UNDERLINE
+===================================================== */
+
+.nav-link::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        3px;
+
+    width:
+        0;
+
+    height:
+        1.5px;
+
+    background:
+        #e4ca00;
+
+    transition:
+        width .45s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.nav-link:hover::after {
+
+    width:
+        100%;
+}
+
+
+/* =====================================================
+   RIGHT ACTION
+===================================================== */
+
+.nav-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    opacity:
+        0;
+
+    filter:
+        blur(8px);
+
+    transform:
+        translateX(65px)
+        scale(.92);
+
+    transition:
+        opacity .8s ease,
+        transform .9s
+        cubic-bezier(.16,1,.3,1),
+        filter .8s ease;
+}
+
+
+body.site-ready .nav-actions {
+
+    opacity:
+        1;
+
+    filter:
+        blur(0);
+
+    transform:
+        translateX(0)
+        scale(1);
+
+    transition-delay:
+        .90s;
+}
+
+
+/* =====================================================
+   BOOK A SESSION
+===================================================== */
+
+.session-btn {
+
+    position:
+        relative;
+
+    height:
+        48px;
+
+    padding:
+        0 19px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    overflow:
+        hidden;
+
+    border:
+        none;
+
+    border-radius:
+        30px;
+
+    background:
+        #648900;
+
+    color:
+        #fffef7;
+
+    text-decoration:
+        none;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
+
+    transition:
+        transform .35s
+        cubic-bezier(.16,1,.3,1),
+        background .35s ease;
+}
+
+
+.session-btn::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -120%;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.3),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .6s ease;
+}
+
+
+.session-btn:hover::before {
+
+    left:
+        120%;
+}
+
+
+.session-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        #e4ca00;
+
+    color:
+        #171717;
+}
+
+
+.session-btn span {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.session-arrow {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    font-size:
+        17px;
+
+    color:
+        #fff;
+
+    transition:
+        transform .35s ease,
+        color .35s ease;
+}
+
+
+.session-btn:hover .session-arrow {
+
+    color:
+        #171717;
+
+    transform:
+        translate(3px,-3px)
+        rotate(8deg);
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
+
+.menu-trigger {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    flex-shrink:
+        0;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    border:
+        1px solid
+        rgba(100,137,0,.22);
+
+    border-radius:
+        50%;
+
+    background:
+        #f8f7ee;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        transform .45s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.menu-trigger span {
+
+    display:
+        block;
+
+    width:
+        17px;
+
+    height:
+        1.5px;
+
+    background:
+        #648900;
+
+    transition:
+        transform .4s
+        cubic-bezier(.16,1,.3,1),
+        width .3s ease,
+        background .3s ease;
+}
+
+
+.menu-trigger:hover {
+
+    background:
+        #e4ca00;
+
+    border-color:
+        #e4ca00;
+
+    transform:
+        rotate(8deg);
+}
+
+
+.menu-trigger:hover span:first-child {
+
+    width:
+        21px;
+}
+
+
+.menu-trigger:hover span:last-child {
+
+    width:
+        12px;
+}
+
+
+/* OPEN */
+
+.menu-trigger.active {
+
+    background:
+        #648900;
+
+    border-color:
+        #648900;
+
+    transform:
+        rotate(0);
+}
+
+
+.menu-trigger.active span {
+
+    background:
+        #fff;
+}
+
+
+.menu-trigger.active span:first-child {
+
+    transform:
+        translateY(3px)
+        rotate(45deg);
+}
+
+
+.menu-trigger.active span:last-child {
+
+    transform:
+        translateY(-3px)
+        rotate(-45deg);
+}
+
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+.site-header.scrolled .navbar {
+
+    margin-top:
+        10px;
+
+    min-height:
+        65px;
+
+    background:
+        rgba(255,255,250,.97);
+
+    box-shadow:
+        0 15px 50px
+        rgba(104,139,0,.12);
+
+    transform:
+        scale(.985);
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+
+    position:
+        fixed;
+
+    inset:
+        0 0 0 auto;
+
+    width:
+        min(410px, 88vw);
+
+    height:
+        100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(228,202,0,.18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 85%,
+            rgba(100,137,0,.10),
+            transparent 30%
+        ),
+        #fcfbf3;
+
+    border-left:
+        1px solid
+        rgba(100,137,0,.12);
+
+    transform:
+        translateX(105%);
+
+    transition:
+        transform .8s
+        cubic-bezier(.16,1,.3,1);
+
+    overflow:
+        hidden;
+
+    z-index:
+        2000;
+}
+
+
+.mobile-menu.open {
+
+    transform:
+        translateX(0);
+}
+
+
+.mobile-menu-inner {
+
+    height:
+        100%;
+
+    padding:
+        105px 30px 28px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+}
+
+
+/* =====================================================
+   MOBILE TOP
+===================================================== */
+
+.mobile-menu-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    padding-bottom:
+        20px;
+
+    border-bottom:
+        1px solid
+        rgba(100,137,0,.15);
+
+    min-height:
+        38px;
+}
+
+
+/* =====================================================
+   MOBILE CLOSE
+===================================================== */
+
+.mobile-close {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border:
+        1px solid
+        rgba(100,137,0,.20);
+
+    border-radius:
+        50%;
+
+    background:
+        transparent;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .35s ease,
+        transform .4s ease;
+}
+
+
+.mobile-close span {
+
+    position:
+        absolute;
+
+    width:
+        14px;
+
+    height:
+        1.5px;
+
+    background:
+        #648900;
+}
+
+
+.mobile-close span:first-child {
+
+    transform:
+        rotate(45deg);
+}
+
+
+.mobile-close span:last-child {
+
+    transform:
+        rotate(-45deg);
+}
+
+
+.mobile-close:hover {
+
+    background:
+        #e4ca00;
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =====================================================
+   MOBILE LINKS
+===================================================== */
+
+.mobile-links {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    margin-top:
+        18px;
+
+    overflow:
+        hidden;
+}
+
+
+.mobile-link {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    width:
+        100%;
+
+    min-height:
+        68px;
+
+    padding:
+        0;
+
+    border-bottom:
+        1px solid
+        rgba(100,137,0,.12);
+
+    text-decoration:
+        none;
+
+    color:
+        #18210b;
+
+    opacity:
+        0;
+
+    transform:
+        translateX(-100px);
+
+    transition:
+        opacity .6s ease,
+        transform .8s
+        cubic-bezier(.16,1,.3,1),
+        color .3s ease;
+}
+
+
+/* RIGHT SIDE */
+
+.mobile-link:nth-child(even) {
+
+    transform:
+        translateX(100px);
+}
+
+
+/* =====================================================
+   MOBILE OPEN ANIMATION
+===================================================== */
+
+.mobile-menu.open .mobile-link {
+
+    opacity:
+        1;
+
+    transform:
+        translateX(0);
+}
+
+
+/* STAGGER */
+
+.mobile-menu.open .mobile-link:nth-child(1) {
+    transition-delay: .08s;
+}
+
+.mobile-menu.open .mobile-link:nth-child(2) {
+    transition-delay: .16s;
+}
+
+.mobile-menu.open .mobile-link:nth-child(3) {
+    transition-delay: .24s;
+}
+
+.mobile-menu.open .mobile-link:nth-child(4) {
+    transition-delay: .32s;
+}
+
+.mobile-menu.open .mobile-link:nth-child(5) {
+    transition-delay: .40s;
+}
+
+.mobile-menu.open .mobile-link:nth-child(6) {
+    transition-delay: .48s;
+}
+
+
+/* =====================================================
+   MOBILE TEXT
+===================================================== */
+
+.mobile-link strong {
+
+    display:
+        block;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size:
+        23px;
+
+    line-height:
+        1;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        -1px;
+
+    transition:
+        transform .4s
+        cubic-bezier(.16,1,.3,1),
+        color .3s ease;
+}
+
+
+.mobile-link:hover {
+
+    color:
+        #648900;
+}
+
+
+.mobile-link:hover strong {
+
+    transform:
+        translateX(10px);
+}
+
+
+/* =====================================================
+   MOBILE YELLOW LINE
+===================================================== */
+
+.mobile-link::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -1px;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    background:
+        #e4ca00;
+
+    transition:
+        width .45s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.mobile-link:hover::before {
+
+    width:
+        100%;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 901px) {
+
+    .nav-links {
+
+        display:
+            flex;
+    }
+
+    .nav-actions {
+
+        display:
+            flex;
+    }
+
+    .menu-trigger {
+
+        display:
+            none !important;
+    }
+
+    .mobile-menu {
+
+        display:
+            none;
+    }
+}
+
+
+/* =====================================================
+   TABLET + MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        width:
+            calc(100% - 18px);
+
+        min-height:
+            60px;
+
+        margin:
+            12px auto 0;
+
+        padding:
+            0 8px 0 18px;
+
+        border-radius:
+            40px;
+    }
+
+
+    .nav-brand {
+
+        font-size:
+            18px;
+
+        letter-spacing:
+            -1.5px;
+    }
+
+
+    .logo-m {
+
+        font-size:
+            21px;
+
+        letter-spacing:
+            -2px;
+    }
+
+
+    .logo-talk {
+
+        margin-left:
+            3px;
+    }
+
+
+    .nav-links {
+
+        display:
+            none;
+    }
+
+
+    .nav-actions {
+
+        display:
+            flex;
+
+        margin-left:
+            auto;
+
+        gap:
+            8px;
+    }
+
+
+    .session-btn {
+
+        display:
+            none;
+    }
+
+
+    .menu-trigger {
+
+        display:
+            flex;
+
+        width:
+            43px;
+
+        height:
+            43px;
+    }
+
+
+    .mobile-menu {
+
+        width:
+            100%;
+
+        max-width:
+            none;
+    }
+
+
+    .mobile-menu-inner {
+
+        padding:
+            92px 24px 24px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .navbar {
+
+        width:
+            calc(100% - 16px);
+
+        min-height:
+            58px;
+
+        padding-left:
+            16px;
+
+        padding-right:
+            7px;
+    }
+
+
+    .nav-brand {
+
+        font-size:
+            16px;
+    }
+
+
+    .logo-m {
+
+        font-size:
+            19px;
+    }
+
+
+    .menu-trigger {
+
+        width:
+            41px;
+
+        height:
+            41px;
+    }
+
+
+    .mobile-menu-inner {
+
+        padding:
+            88px 23px 22px;
+    }
+
+
+    .mobile-link {
+
+        min-height:
+            64px;
+    }
+
+
+    .mobile-link strong {
+
+        font-size:
+            21px;
+    }
+}
+
+/* =========================================================
+   MPOWER TALK — FOUNDER INTRODUCTION
+   ASYMMETRIC EDITORIAL LAYOUT
+========================================================= */
+
+.mp-founder-story {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 620px;
+
+    margin: 0;
+
+    padding:
+        92px
+        5vw
+        60px;
+
+    box-sizing: border-box;
+
+    background: #fcfbf3;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.mp-founder-container {
+    width: 100%;
+
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        52%
+        48%;
+
+    align-items: center;
+
+    gap: 0;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.mp-founder-content {
+    width: 100%;
+
+    max-width: 620px;
+
+    padding-right: 45px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   FOUNDER LABEL
+   CENTER + UNDERLINE
+========================================================= */
+
+.mp-founder-eyebrow {
+    display: inline-block;
+
+    margin: 0 0 28px;
+
+    padding: 0 0 8px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    letter-spacing: 4px;
+
+    color: #648900;
+
+    text-transform: uppercase;
+
+    border-bottom:
+        1px solid
+        #648900;
+}
+
+
+/* NO EXTRA LINE */
+
+.mp-founder-eyebrow::after {
+    display: none !important;
+
+    content: none !important;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.mp-founder-title {
+    position: relative;
+
+    width: 100%;
+
+    height: 235px;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            48px,
+            5.2vw,
+            72px
+        );
+
+    font-weight: 400;
+
+    line-height: .78;
+
+    letter-spacing: -.055em;
+
+    text-transform: uppercase;
+
+    color: #183d29;
+}
+
+
+/* =========================================================
+   ALL WORDS
+========================================================= */
+
+.mp-founder-title .founder-word {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 0;
+
+    padding: 0;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   THE
+   LEFT
+========================================================= */
+
+.mp-founder-title .word-1 {
+    margin-left: 0;
+
+    color: #183d29;
+}
+
+
+/* =========================================================
+   VOICE
+   MOVE TOWARDS CENTER
+========================================================= */
+
+.mp-founder-title .word-2 {
+    margin-left: 15%;
+
+    color: #183d29;
+}
+
+
+/* =========================================================
+   BEHIND
+   MOVE FURTHER RIGHT
+========================================================= */
+
+.mp-founder-title .word-3 {
+    margin-left: 29%;
+
+    color: #648900;
+}
+
+
+/* =========================================================
+   MPOWER TALK
+   LOWER + SLIGHTLY LEFT
+========================================================= */
+
+.mp-founder-title .founder-line {
+    display: block;
+
+    width: fit-content;
+
+    margin-top: 2px;
+
+    margin-left: 5%;
+
+    padding: 0;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MPOWER + TALK
+========================================================= */
+
+.mp-founder-title .word-4,
+.mp-founder-title .word-5 {
+    display: inline;
+
+    color: #d76545;
+}
+
+
+.mp-founder-title .word-4::after {
+    content: " ";
+}
+
+
+/* =========================================================
+   FOUNDER NAME
+========================================================= */
+
+.mp-founder-name {
+    margin: 0 0 6px;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    color: #20251b;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.mp-founder-role {
+    margin: 0 0 25px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    line-height: 1.2;
+
+    letter-spacing: 2px;
+
+    color: #737764;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   DESKTOP — MOVED UP + LARGER
+========================================================= */
+
+.mp-founder-story-copy {
+    width: 100%;
+
+    max-width: 580px;
+
+    margin: -10px 0 0;
+
+    padding: 0;
+
+    border: none;
+
+    box-sizing: border-box;
+}
+
+
+.mp-founder-story-copy p {
+    margin: 0 0 11px;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #55574e;
+}
+
+
+.mp-founder-story-copy p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   IMAGE AREA
+========================================================= */
+
+.mp-founder-image-wrap {
+    width: 100%;
+
+    min-height: 500px;
+
+    height: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    position: relative;
+
+    overflow: visible;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.mp-founder-image {
+    width: 100%;
+
+    max-width: 570px;
+
+    height: auto;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: visible;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   IMAGE — NEVER CROP
+========================================================= */
+
+.mp-founder-image img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    object-position: center center;
+
+    transform: none;
+
+    animation: none;
+
+    transition: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 701px) and (max-width: 1050px) {
+
+    .mp-founder-story {
+        min-height: 570px;
+
+        padding:
+            85px
+            4vw
+            50px;
+    }
+
+
+    .mp-founder-container {
+        grid-template-columns:
+            52%
+            48%;
+    }
+
+
+    .mp-founder-content {
+        padding-right: 25px;
+    }
+
+
+    .mp-founder-eyebrow {
+        font-size: 9px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .mp-founder-title {
+        height: 225px;
+
+        font-size:
+            clamp(
+                44px,
+                6vw,
+                64px
+            );
+    }
+
+
+    .mp-founder-title .word-2 {
+        margin-left: 13%;
+    }
+
+
+    .mp-founder-title .word-3 {
+        margin-left: 25%;
+    }
+
+
+    .mp-founder-title .founder-line {
+        margin-left: 3%;
+    }
+
+
+    .mp-founder-name {
+        font-size: 20px;
+    }
+
+
+    .mp-founder-story-copy p {
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+
+    .mp-founder-image-wrap {
+        min-height: 430px;
+    }
+
+
+    .mp-founder-image {
+        max-width: 500px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .mp-founder-story {
+    width: 100%;
+
+    min-height: auto;
+
+    height: auto;
+
+    padding:
+        72px
+        14px
+        8px;
+
+    margin: 0;
+
+    background: #fcfbf3;
+
+    overflow: hidden;
+}
+
+    /* =====================================================
+       MOBILE CONTAINER
+    ===================================================== */
+
+    .mp-founder-container {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 28px;
+    }
+
+
+    /* =====================================================
+       MOBILE IMAGE
+    ===================================================== */
+
+    .mp-founder-image-wrap {
+        order: 1;
+
+        width: 100%;
+
+        min-height: 0;
+
+        height: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        overflow: visible;
+
+        margin: 0;
+    }
+
+
+    .mp-founder-image {
+        width: 100%;
+
+        max-width: 430px;
+
+        height: auto;
+
+        margin: 0 auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        overflow: visible;
+    }
+
+
+    .mp-founder-image img {
+        display: block;
+
+        width: 100%;
+
+        height: auto;
+
+        max-width: 100%;
+
+        object-fit: contain;
+
+        object-position: center center;
+
+        transform: none;
+
+        animation: none;
+    }
+
+
+    /* =====================================================
+       MOBILE CONTENT
+    ===================================================== */
+
+    .mp-founder-content {
+        order: 2;
+
+        width: 100%;
+
+        max-width: 500px;
+
+        padding: 0;
+
+        margin: 0 auto;
+
+        text-align: left;
+
+        display: block;
+    }
+
+
+    /* =====================================================
+       FOUNDER LABEL
+       CENTER + UNDERLINE
+    ===================================================== */
+
+    .mp-founder-eyebrow {
+        display: table;
+
+        margin:
+            0
+            auto
+            20px;
+
+        padding-bottom: 7px;
+
+        font-size: 7px;
+
+        line-height: 1;
+
+        letter-spacing: 2.8px;
+
+        text-align: center;
+
+        border-bottom:
+            1px solid
+            #648900;
+    }
+
+
+    /* =====================================================
+       MOBILE TITLE
+       EXACT ASYMMETRIC PATTERN
+    ===================================================== */
+
+    .mp-founder-title {
+    width: 100%;
+
+    height: 185px;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size:
+        clamp(
+            38px,
+            10.5vw,
+            48px
+        );
+
+    line-height: .82;
+
+    letter-spacing: -.055em;
+
+    text-align: left;
+}
+
+
+    /* THE — LEFT */
+
+    .mp-founder-title .word-1 {
+        margin-left: 0;
+    }
+
+
+    /* VOICE — CENTRE */
+
+    .mp-founder-title .word-2 {
+        margin-left: 23%;
+    }
+
+
+    /* BEHIND — RIGHT */
+
+    .mp-founder-title .word-3 {
+        margin-left: 42%;
+    }
+
+
+    /* MPOWER TALK — BELOW */
+
+    .mp-founder-title .founder-line {
+        margin-top: 5px;
+
+        margin-left: 9%;
+
+        white-space: nowrap;
+    }
+
+
+    .mp-founder-title .word-4,
+    .mp-founder-title .word-5 {
+        display: inline;
+    }
+
+
+    /* =====================================================
+       NAME
+    ===================================================== */
+
+   .mp-founder-name {
+    width: 94%;
+
+    margin: 0 auto 5px;
+
+    padding-left: 0;
+
+    font-size: 18px;
+
+    line-height: 1.15;
+
+    text-align: left;
+}
+
+
+    /* =====================================================
+       ROLE
+    ===================================================== */
+
+   .mp-founder-role {
+    width: 94%;
+
+    margin: 0 auto 20px;
+
+    padding-left: 0;
+
+    font-size: 6.5px;
+
+    letter-spacing: 1.4px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+    /* =====================================================
+       DESCRIPTION
+    ===================================================== */
+
+    /* =====================================================
+   DESCRIPTION
+   MOVED UP + SLIGHTLY LARGER
+===================================================== */
+
+.mp-founder-story-copy {
+    width: 94%;
+
+    max-width: 480px;
+
+    margin: -8px auto 0;
+
+    padding: 0;
+
+    border: none;
+
+    text-align: left;
+}
+
+
+.mp-founder-story-copy p {
+    width: 100%;
+
+    margin: 0 0 9px;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    text-align: left;
+
+    color: #55574e;
+}
+
+
+.mp-founder-story-copy p:last-child {
+    margin-bottom: 0;
+}
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+   .mp-founder-story {
+    padding:
+        68px
+        12px
+        8px;
+}
+
+
+    .mp-founder-title {
+    height: 195px;
+
+    font-size:
+        clamp(
+            35px,
+            10.8vw,
+            44px
+        );
+
+    line-height: .84;
+}
+
+
+    .mp-founder-title .word-2 {
+        margin-left: 20%;
+    }
+
+
+    .mp-founder-title .word-3 {
+        margin-left: 38%;
+    }
+
+
+    .mp-founder-title .founder-line {
+        margin-left: 7%;
+    }
+
+
+   .mp-founder-name {
+    width: 95%;
+
+    margin: 0 auto 5px;
+
+    font-size: 16px;
+
+    padding-left: 0;
+}
+
+
+  .mp-founder-role {
+    width: 95%;
+
+    margin: 0 auto 20px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.1px;
+
+    padding-left: 0;
+}
+
+
+    .mp-founder-story-copy {
+        width: 95%;
+    }
+
+
+    .mp-founder-story-copy p {
+    font-size: 11px;
+
+    line-height: 1.52;
+}
+
+}
+
+
+/* =====================================================
+   SECTION 02 — mPOWER TALK
+   COMPLETE RESPONSIVE DESIGN
+===================================================== */
+
+#voiceStory {
+    position: relative;
+    width: 100%;
+    height: 1000vh;
+    margin: 0;
+    padding: 0;
+    background: #f7f6eb;
+    overflow: clip;
+    isolation: isolate;
+}
+
+#voiceStory,
+#voiceStory * {
+    box-sizing: border-box;
+}
+
+#voiceStory .voice-story-inner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(220, 210, 165, .25),
+            transparent 45%
+        ),
+        #f7f6eb;
+}
+
+/* Background details */
+
+#voiceStory .voice-story-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(24,61,41,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24,61,41,.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+#voiceStory .voice-story-inner::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: min(60vw, 700px);
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(113,132,0,.13);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Initial heading */
+
+#voiceStory .voice-belief {
+    position: absolute;
+    z-index: 5;
+    left: 6%;
+    top: 19%;
+    width: 30%;
+    max-width: 390px;
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+}
+
+#voiceStory .voice-belief-kicker {
+    margin-bottom: 18px;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #718400;
+}
+
+#voiceStory .voice-belief-kicker::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 1px;
+    margin-top: 10px;
+    background: #d76545;
+}
+
+#voiceStory .voice-belief h2 {
+    margin: 0;
+    font-family: "Gloock", Georgia, serif;
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: -2px;
+    color: #183d29;
+}
+
+#voiceStory .voice-belief h2 span {
+    color: #d76545;
+}
+
+#voiceStory .voice-belief > p {
+    max-width: 330px;
+    margin-top: 18px;
+    font-family: "Syne", sans-serif;
+    font-size: 11px;
+    line-height: 1.65;
+    color: #66695f;
+}
+
+#voiceStory .voice-belief-note {
+    margin-top: 26px;
+    padding-left: 10px;
+    border-left: 1px solid #d76545;
+    font-family: "DM Mono", monospace;
+    font-size: 7px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    color: #777970;
+}
+
+/* Microphone */
+
+#voiceStory .voice-mic-stage {
+    position: absolute;
+    z-index: 10;
+    left: 30%;
+    top: 50%;
+    width: 38%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    pointer-events: none;
+    will-change: transform;
+}
+
+#voiceStory .voice-mic-image {
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 25px rgba(40,35,20,.14));
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+#voiceStory .voice-mic-glow {
+    position: absolute;
+    z-index: 1;
+    width: 80%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(230,217,170,.48),
+        rgba(113,132,0,.05),
+        transparent 70%
+    );
+    filter: blur(12px);
+}
+
+#voiceStory .voice-mic-orbit {
+    position: absolute;
+    z-index: 2;
+    width: 90%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(113,132,0,.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#voiceStory .voice-mic-orbit-1 {
+    transform: scaleY(.55) rotate(-14deg);
+}
+
+#voiceStory .voice-mic-orbit-2 {
+    width: 110%;
+    transform: scaleY(.4) rotate(18deg);
+}
+
+/* Belief cards */
+
+#voiceStory .voice-beliefs-list {
+    position: absolute;
+    z-index: 20;
+    top: 15%;
+    right: 4%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#voiceStory .voice-belief-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    min-height: 90px;
+    opacity: 0;
+    transform: translateX(20px);
+    will-change: opacity, transform;
+}
+
+#voiceStory .voice-belief-card::before {
+    content: "";
+    position: absolute;
+    left: -55px;
+    top: 50%;
+    width: 45px;
+    height: 1px;
+    background: rgba(113,132,0,.25);
+}
+
+#voiceStory .voice-card-media {
+    width: 76px;
+    height: 76px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#voiceStory .voice-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#voiceStory .voice-card-label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #e46b4f;
+}
+
+#voiceStory .voice-card-copy h3 {
+    margin: 0;
+    font-family: "Syne", sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #183d29;
+}
+
+#voiceStory .voice-card-copy p {
+    margin-top: 7px;
+    font-family: "Syne", sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #777970;
+}
+
+/* About */
+
+/* ABOUT MPOWERTALK — DESKTOP */
+
+#voiceStory .voice-about {
+    position: absolute;
+    z-index: 30;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 3%;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    will-change: opacity;
+}
+
+#voiceStory .voice-about-inner {
+    width: 38%;
+    max-width: 650px;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: 2%;
+    overflow-wrap: anywhere;
+    transform: translateY(25px);
+    will-change: transform;
+}
+
+#voiceStory .voice-about-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #718400;
+}
+
+#voiceStory .voice-about-label::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 1px;
+    margin-top: 12px;
+    background: #d76545;
+}
+
+#voiceStory .voice-about h2 {
+    margin: 0;
+    font-family: "Gloock", Georgia, serif;
+    font-size: clamp(52px, 6vw, 82px);
+    line-height: .95;
+    letter-spacing: -2px;
+    font-weight: 400;
+    color: #183d29;
+    overflow-wrap: normal;
+}
+
+#voiceStory .voice-about h2 span {
+    display: block;
+    color: #d76545;
+}
+
+#voiceStory .voice-about p {
+    max-width: 520px;
+    margin-top: 20px;
+    font-family: "Syne", sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #66695f;
+}
+
+#voiceStory .voice-about-meta {
+    margin-top: 20px;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #777970;
+}
+
+#voiceStory .voice-about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 14px 20px;
+    border-radius: 30px;
+    background: #668900;
+    color: #fff;
+    text-decoration: none;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+}
+
+/* Scroll hint */
+
+#voiceStory .voice-scroll-note {
+    position: absolute;
+    z-index: 40;
+    left: 6%;
+    bottom: 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "DM Mono", monospace;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    color: #777970;
+}
+
+#voiceStory .voice-scroll-note span {
+    width: 30px;
+    height: 1px;
+    background: #d76545;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (min-width: 701px) and (max-width: 1023px) {
+    #voiceStory .voice-belief {
+        left: 4%;
+        width: 31%;
+    }
+
+    #voiceStory .voice-belief h2 {
+        font-size: 42px;
+    }
+
+    #voiceStory .voice-mic-stage {
+        left: 27%;
+        width: 39%;
+        height: 65%;
+    }
+
+    #voiceStory .voice-beliefs-list {
+        right: 3%;
+        width: 31%;
+        gap: 12px;
+    }
+
+    #voiceStory .voice-belief-card {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 8px;
+        min-height: 50px;
+    }
+
+    #voiceStory .voice-card-media {
+        width: 42px;
+        height: 42px;
+    }
+
+    #voiceStory .voice-card-copy h3 {
+        font-size: 10px;
+    }
+
+    #voiceStory .voice-card-copy p {
+        font-size: 7px;
+    }
+
+    #voiceStory .voice-about {
+        padding: 0 5%;
+    }
+
+    #voiceStory .voice-about-inner {
+        width: 46%;
+    }
+
+    #voiceStory .voice-about h2 {
+        font-size: 60px;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  #voiceStory.voice-story {
+    height: 1000px !important;
+    min-height: 1000px !important;
+    max-height: none !important;
+    width: 100%;
+    overflow: visible;
+}
+
+    #voiceStory .voice-story-inner {
+        height: 1000svh;
+        min-height: 0;
+        max-height: 100svh;
+    }
+
+    #voiceStory .voice-story-inner::after {
+        width: 90vw;
+        left: 50%;
+        top: 52%;
+    }
+
+    
+/* MOBILE — LEFT INTRO ONLY */
+
+#voiceStory .voice-belief {
+    position: absolute;
+    left: 6%;
+    right: auto;
+    top: 10%;
+
+    width: 100%;
+    max-width: 250px;
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+    z-index: 20;
+}
+
+#voiceStory .voice-belief-kicker {
+    display: block;
+    margin: 0 0 12px;
+
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: 1.5px;
+    text-align: left;
+}
+
+#voiceStory .voice-belief-kicker::after {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 5px;
+    margin-top: 8px;
+    background: #d76545;
+}
+
+#voiceStory .voice-belief h2 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -1.2px;
+
+    text-align: left;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+#voiceStory .voice-belief h2 span {
+    display: inline;
+    color: #d76545;
+}
+
+#voiceStory .voice-belief > p {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 10px 0 0;
+    font-size: 10px;
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+#voiceStory .voice-belief-note {
+    margin-top: 14px;
+    font-size: 7px;
+    letter-spacing: .8px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Mic initial position: right side */
+
+#voiceStory .voice-mic-stage {
+    left: 53%;
+    top: 44%;
+    width: 48%;
+    height: 35%;
+    transform: translateY(-50%);
+}
+
+#voiceStory .voice-mic-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+    #voiceStory .voice-mic-orbit-1 {
+        width: 95%;
+    }
+
+    #voiceStory .voice-mic-orbit-2 {
+        width: 110%;
+    }
+
+/* Four cards — bigger cards */
+
+#voiceStory .voice-beliefs-list {
+    top: 55%;
+    right: 4%;
+    width: 48%;
+    gap: 14px;
+}
+
+#voiceStory .voice-belief-card {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 10px;
+    min-height: 48px;
+}
+
+#voiceStory .voice-belief-card::before {
+    left: -10px;
+    width: 7px;
+}
+
+#voiceStory .voice-card-media {
+    width: 36px;
+    height: 36px;
+}
+
+#voiceStory .voice-card-label {
+    margin-bottom: 4px;
+    font-size: 9px;
+    letter-spacing: .7px;
+    color: #d76545;
+}
+
+#voiceStory .voice-card-label::before {
+    width: 12px;
+    margin-right: 5px;
+}
+
+#voiceStory .voice-card-copy h3 {
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+#voiceStory .voice-card-copy p {
+    margin-top: 4px;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+/* Final scene: About replaces the cards */
+
+#voiceStory .voice-about {
+    inset: 0;
+    padding: 0 4%;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+#voiceStory .voice-about-inner {
+    position: absolute;
+    top: 46%;
+    right: 0%;
+    width: 62%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: normal;
+}
+
+#voiceStory .voice-about-label {
+    margin-bottom: 9px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#voiceStory .voice-about-label::after {
+    width: 35px;
+    margin-top: 6px;
+}
+
+#voiceStory .voice-about h2 {
+    font-size: clamp(42px, 9vw, 42px);
+    line-height: .98;
+    letter-spacing: -.8px;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+#voiceStory .voice-about p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#voiceStory .voice-about-meta {
+    margin-top: 8px;
+    font-size: 7px;
+    letter-spacing: .4px;
+}
+
+#voiceStory .voice-about-link {
+    gap: 5px;
+    margin-top: 9px;
+    padding: 6px 7px;
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+    #voiceStory .voice-scroll-note {
+        left: 5%;
+        bottom: 3%;
+        font-size: 5px;
+    }
+
+    #voiceStory .voice-scroll-note span {
+        width: 20px;
+    }
+}
+
+/* Very small phones */
+
+@media (max-width: 390px) {
+    #voiceStory .voice-belief h2 {
+        font-size: 40px;
+    }
+
+   #voiceStory .voice-mic-stage {
+    left: 53%;
+    top: 44%;
+    width: 48%;
+    height: 35%;
+}
+
+   #voiceStory .voice-about-inner {
+    width: 70%;
+}
+
+#voiceStory .voice-about h2 {
+    font-size: 60px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #voiceStory .voice-belief,
+    #voiceStory .voice-mic-stage,
+    #voiceStory .voice-mic-image,
+    #voiceStory .voice-belief-card,
+    #voiceStory .voice-about,
+    #voiceStory .voice-about-inner {
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   MPOWER TALK — SECTION 03
+   CINEMATIC SERVICES JOURNEY
+   ---------------------------------------------------------
+   FLOW:
+
+   SECTION 02 MIC
+        ↓
+   TRAVEL TO RIGHT
+        ↓
+   INTRO TEXT LEFT
+        ↓
+   MIC RIGHT → CENTRE
+        ↓
+   SERVICES AROUND MIC
+        ↓
+   MIC CENTRE
+        ↓
+   OUR SERVICES + CARDS BELOW
+
+   REVERSE SCROLL = EXACT REVERSE
+========================================================= */
+
+
+/* =========================================================
+   SECTION 03 — MAIN
+========================================================= */
+
+#programs.mp3-services {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 720vh;
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #f7f6eb;
+
+    color: #183d29;
+
+    overflow: clip;
+
+    isolation: isolate;
+}
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+#programs .mp3-services-track {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   STICKY CINEMATIC STAGE
+========================================================= */
+
+#programs .mp3-services-stage {
+
+    position: sticky;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    height: 100svh;
+
+    min-height: 600px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+
+        radial-gradient(
+            circle at 72% 45%,
+            rgba(220, 205, 145, .20),
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 30% 52%,
+            rgba(220, 205, 145, .10),
+            transparent 30%
+        ),
+
+        #f7f6eb;
+}
+
+
+/* =========================================================
+   SUBTLE GRID
+========================================================= */
+
+#programs .mp3-services-stage::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(24, 61, 41, .025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(24, 61, 41, .025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+}
+
+
+/* =========================================================
+   CENTRE ORBIT
+========================================================= */
+
+#programs .mp3-services-stage::after {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: min(54vw, 720px);
+
+    aspect-ratio: 1;
+
+    border:
+        1px solid
+        rgba(113, 132, 0, .12);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   SECTION 03 — INTRO
+   EDITORIAL COLOUR TREATMENT
+========================================================= */
+
+#programs .mp3-services-intro {
+
+    position: absolute;
+
+    left: 7%;
+
+    top: 50%;
+
+    width: 43%;
+
+    max-width: 520px;
+
+    text-align: left;
+
+    z-index: 50;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate3d(-35px, -50%, 0);
+
+    will-change:
+        transform,
+        opacity;
+}
+
+/* =========================================================
+   INTRO LABEL
+========================================================= */
+
+#programs .mp3-services-intro > span {
+
+    display: block;
+
+    margin-bottom: 22px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    line-height: 1.1;
+
+    color: #648900;
+
+    text-align: left;
+
+    text-transform: uppercase;
+}
+
+
+/* SMALL GOLD/GREEN LINE */
+
+#programs .mp3-services-intro > span::after {
+
+    content: "";
+
+    display: block;
+
+    width: 38px;
+
+    height: 2px;
+
+    margin-top: 10px;
+
+    background: #d76545;
+}
+
+
+/* =========================================================
+   INTRO HEADING
+========================================================= */
+
+#programs .mp3-services-intro h2 {
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family:
+        "Gloock",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            52px,
+            6.2vw,
+            92px
+        );
+
+    font-weight: 400;
+
+    line-height: .86;
+
+    letter-spacing: -.065em;
+
+    color: #183d29;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+#programs .mp3-intro-main {
+
+    display: inline;
+
+    color: #183d29;
+}
+#programs
+.mp3-intro-main {
+
+    display: inline;
+
+    color: #183d29;
+
+}
+
+
+#programs
+.mp3-intro-brand {
+
+    display: inline;
+
+    margin: 0;
+
+    padding: 0;
+
+    color: #d76545;
+
+    font-weight: 400;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   MPOWER TALK — COLOUR ACCENT
+   SAME LINE
+========================================================= */
+
+#programs .mp3-intro-brand {
+
+    display: inline;
+
+    margin: 0;
+
+    padding: 0;
+
+    color: #d76545;
+
+    font-weight: 400;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   INTRO DESCRIPTION
+========================================================= */
+
+#programs .mp3-services-intro p {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin:
+        27px 0 0;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 1.65;
+
+    letter-spacing: 0;
+
+    color:
+        rgba(
+            24,
+            61,
+            41,
+            .72
+        );
+
+    text-align: left;
+}
+
+/* =========================================================
+   MOVING MIC
+   CREATED BY JS
+
+   JS controls:
+   - left
+   - top
+   - width
+   - height
+   - opacity
+========================================================= */
+
+.mp3-transition-mic {
+
+    position: fixed;
+
+    z-index: 500;
+
+    display: block;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: visible;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    will-change:
+        left,
+        top,
+        width,
+        height,
+        opacity;
+
+    transform:
+        translateZ(0);
+}
+
+
+/* =========================================================
+   MOVING MIC IMAGE
+========================================================= */
+
+.mp3-transition-mic
+.voice-mic-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    transform: none;
+
+    filter:
+        drop-shadow(
+            0 24px 32px
+            rgba(
+                24,
+                61,
+                41,
+                .14
+            )
+        );
+}
+
+
+/* =========================================================
+   SERVICES — BASE
+========================================================= */
+
+#programs .mp3-service-item {
+
+    position: absolute;
+
+    z-index: 40;
+
+    width: min(25vw, 330px);
+
+    margin: 0;
+
+    padding: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* =========================================================
+   LEFT SERVICES
+========================================================= */
+
+#programs .mp3-service-item.is-left {
+
+    left: 6%;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   RIGHT SERVICES
+========================================================= */
+
+#programs .mp3-service-item.is-right {
+
+    right: 6%;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   SERVICE POSITIONS
+
+   Top pair
+========================================================= */
+
+#programs
+.mp3-service-item.service-1 {
+
+    top: 34%;
+
+    transform:
+        translate3d(-28px, -50%, 0);
+}
+
+
+#programs
+.mp3-service-item.service-2 {
+
+    top: 34%;
+
+    transform:
+        translate3d(28px, -50%, 0);
+}
+
+
+/* =========================================================
+   Bottom pair
+========================================================= */
+
+#programs
+.mp3-service-item.service-3 {
+
+    top: 67%;
+
+    transform:
+        translate3d(-28px, -50%, 0);
+}
+
+
+#programs
+.mp3-service-item.service-4 {
+
+    top: 67%;
+
+    transform:
+        translate3d(28px, -50%, 0);
+}
+
+
+/* =========================================================
+   SERVICE KICKER
+========================================================= */
+
+#programs .mp3-service-kicker {
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    letter-spacing: 3px;
+
+    color: #718400;
+
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   SERVICE HEADING
+========================================================= */
+
+#programs .mp3-service-item h2 {
+
+    margin: 0;
+
+    font-family:
+        "Gloock",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            36px,
+            3.8vw,
+            58px
+        );
+
+    font-weight: 400;
+
+    line-height: .94;
+
+    letter-spacing: -1.8px;
+
+    color: #183d29;
+}
+
+
+#programs .mp3-service-item h2 strong {
+
+    color: #d76545;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   SERVICE DESCRIPTION
+========================================================= */
+
+#programs .mp3-service-item p {
+
+    margin:
+        17px
+        0
+        0;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    letter-spacing: 0;
+
+    color:
+        rgba(
+            24,
+            61,
+            41,
+            .68
+        );
+
+    max-width: 370px;
+}
+
+
+/* =========================================================
+   SERVICE DECORATIVE LINE
+========================================================= */
+
+#programs .mp3-service-item::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 1px;
+
+    margin-top: 17px;
+
+    background:
+        rgba(
+            113,
+            132,
+            0,
+            .35
+        );
+}
+
+
+#programs
+.mp3-service-item.is-right::after {
+
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   FINAL SCENE
+
+   MIC = CENTRE
+
+   OUR SERVICES = BELOW
+========================================================= */
+
+#programs .mp3-services-final {
+
+    position: absolute;
+
+    z-index: 60;
+
+    left: 50%;
+
+    bottom: 2%;
+
+    width: min(88vw, 1180px);
+
+    margin: 0;
+
+    padding: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate3d(
+            -50%,
+            25px,
+            0
+        );
+
+    text-align: center;
+
+    will-change:
+        transform,
+        opacity;
+
+    margin: 0;
+
+    padding: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate3d(
+            -50%,
+            25px,
+            0
+        );
+
+    text-align: center;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* =========================================================
+   FINAL KICKER
+========================================================= */
+
+#programs .mp3-final-kicker {
+
+    margin-bottom: 8px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 3px;
+
+    color: #718400;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FINAL HEADING
+========================================================= */
+
+#programs .mp3-services-final h2 {
+
+    margin:
+        0
+        0
+        28px;
+
+    font-family:
+        "Gloock",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            50px,
+            5.8vw,
+            82px
+        );
+
+    font-weight: 400;
+
+    line-height: .88;
+
+    letter-spacing: -2.8px;
+
+    color: #183d29;
+}
+
+#programs
+.mp3-services-final h2 strong {
+
+    color: #d76545;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   FINAL SERVICE CARDS
+========================================================= */
+
+#programs .mp3-services-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   FINAL CARD
+========================================================= */
+
+#programs .mp3-services-list-item {
+
+    min-height: 165px;
+
+    margin: 0;
+
+    padding:
+        24px
+        22px;
+
+    border:
+        1px solid
+        rgba(
+            24,
+            61,
+            41,
+            .12
+        );
+
+    border-radius: 18px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .40
+        );
+
+    text-align: left;
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+#programs .mp3-service-icon {
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    color: #d76545;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+#programs
+.mp3-services-list-item h3 {
+
+    margin:
+        0
+        0
+        10px;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -.2px;
+
+    color: #183d29;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+#programs
+.mp3-services-list-item p {
+
+    margin: 0;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    line-height: 1.55;
+
+    color:
+        rgba(
+            24,
+            61,
+            41,
+            .58
+        );
+}
+
+
+/* =========================================================
+   DESKTOP CARD HOVER
+========================================================= */
+
+@media (min-width: 701px) {
+
+    #programs
+    .mp3-services-list-item:hover {
+
+        transform:
+            translateY(-4px);
+
+        border-color:
+            rgba(
+                113,
+                132,
+                0,
+                .25
+            );
+
+        background:
+            rgba(
+                255,
+                255,
+                255,
+                .60
+            );
+    }
+
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    #programs
+    .mp3-services-intro {
+
+        left: 5%;
+
+        width: 39vw;
+    }
+
+
+    #programs
+    .mp3-service-item {
+
+        width: 27vw;
+    }
+
+
+    #programs
+    .mp3-service-item.is-left {
+
+        left: 4%;
+    }
+
+
+    #programs
+    .mp3-service-item.is-right {
+
+        right: 4%;
+    }
+
+
+    #programs
+    .mp3-services-list {
+
+        gap: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #programs.mp3-services {
+
+        height: 720vh;
+    }
+
+
+    #programs
+    .mp3-services-stage {
+
+        min-height: 620px;
+
+        background:
+
+            radial-gradient(
+                circle at 50% 43%,
+                rgba(
+                    220,
+                    205,
+                    145,
+                    .26
+                ),
+                transparent 43%
+            ),
+
+            #f7f6eb;
+    }
+
+
+    /* ---------------------------------------------
+       ORBIT
+    --------------------------------------------- */
+
+    #programs
+    .mp3-services-stage::after {
+
+        width: 92vw;
+
+        border-color:
+            rgba(
+                113,
+                132,
+                0,
+                .10
+            );
+    }
+
+
+    /* ---------------------------------------------
+       INTRO
+    --------------------------------------------- */
+
+#programs
+.mp3-services-intro {
+
+    left: 7% !important;
+
+    /*
+       NAVBAR BELOW INTRO POSITION
+
+       Keeps the intro safely below
+       the fixed mobile navbar.
+    */
+    top: clamp(
+        90px,
+        22vh,
+        150px
+    ) !important;
+
+    width: 47% !important;
+
+    max-width: 230px;
+
+    transform: none !important;
+
+    text-align: left !important;
+
+    z-index: 50;
+
+}
+
+
+  #programs
+.mp3-services-intro > span {
+
+    margin-bottom: 16px;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 2.3px;
+
+    line-height: 1.1;
+
+    color: #648900;
+
+    text-align: left;
+}
+
+
+    #programs
+    .mp3-services-intro > span::after {
+
+        width: 34px;
+
+        height: 1px;
+
+        margin-top: 8px;
+    }
+
+
+#programs
+.mp3-services-intro h2 {
+
+    width: 100%;
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            39px,
+            10.5vw,
+            52px
+        );
+
+    line-height: .91;
+
+    letter-spacing: -.055em;
+
+    color: #183d29;
+
+    text-align: left;
+
+}
+
+
+#programs
+.mp3-services-intro p {
+
+    width: 100%;
+
+    max-width: 310px;
+
+    margin-top: 20px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    line-height: 1.55;
+
+    letter-spacing: -.05px;
+
+    color:
+        rgba(
+            24,
+            61,
+            41,
+            .72
+        );
+
+    text-align: left;
+}
+
+
+    /* ---------------------------------------------
+       MOVING MIC
+    --------------------------------------------- */
+
+    .mp3-transition-mic
+    .voice-mic-image {
+
+        filter:
+            drop-shadow(
+                0 17px 24px
+                rgba(
+                    24,
+                    61,
+                    41,
+                    .13
+                )
+            );
+    }
+
+
+    /* ---------------------------------------------
+       SERVICES
+    --------------------------------------------- */
+
+    #programs
+    .mp3-service-item {
+
+        width: 37%;
+
+        top: auto;
+    }
+
+
+    #programs
+    .mp3-service-item.is-left {
+
+        left: 5%;
+
+        text-align: left;
+    }
+
+
+    #programs
+    .mp3-service-item.is-right {
+
+        right: 5%;
+
+        text-align: right;
+    }
+
+
+    #programs
+    .mp3-service-item.service-1 {
+
+        top: 25%;
+    }
+
+
+    #programs
+    .mp3-service-item.service-2 {
+
+        top: 25%;
+    }
+
+
+    #programs
+    .mp3-service-item.service-3 {
+
+        top: 63%;
+    }
+
+
+    #programs
+    .mp3-service-item.service-4 {
+
+        top: 63%;
+    }
+
+
+ #programs
+.mp3-service-kicker {
+
+    margin-bottom: 8px;
+
+    font-size: 9.5px;
+
+    letter-spacing: 1.8px;
+}
+
+
+ #programs
+.mp3-service-item h2 {
+
+    font-size:
+        clamp(
+            24px,
+            6.8vw,
+            36px
+        );
+
+    line-height: .95;
+
+    letter-spacing: -1px;
+}
+
+
+#programs
+.mp3-service-item p {
+
+    margin-top: 8px;
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+
+    #programs
+    .mp3-service-item::after {
+
+        width: 27px;
+
+        margin-top: 8px;
+    }
+
+
+    /* ---------------------------------------------
+       FINAL
+    --------------------------------------------- */
+
+    #programs
+    .mp3-services-final {
+
+        bottom: 3.5%;
+
+        width: 90%;
+    }
+
+
+#programs
+.mp3-final-kicker {
+
+    margin-bottom: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 2.2px;
+}
+
+#programs
+.mp3-services-final h2 {
+
+    margin-bottom: 14px;
+
+    font-size:
+        clamp(
+            34px,
+            9.5vw,
+            48px
+        );
+
+    line-height: .9;
+
+    letter-spacing: -1.5px;
+}
+
+
+    #programs
+    .mp3-services-list {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap: 6px;
+    }
+
+
+#programs
+.mp3-services-list-item {
+
+    min-height: 112px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+}
+
+#programs
+.mp3-service-icon {
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+    line-height: 1;
+}
+
+#programs
+.mp3-services-list-item h3 {
+
+    margin-bottom: 7px;
+
+    font-size: 15px;
+
+    line-height: 1.15;
+
+    letter-spacing: -.2px;
+}
+
+#programs
+.mp3-services-list-item p {
+
+    font-size: 10px;
+
+    line-height: 1.45;
+
+    letter-spacing: 0;
+}
+
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    #programs.mp3-services {
+
+        height: 750vh;
+    }
+
+
+    #programs
+    .mp3-services-intro {
+
+        left: 6%;
+
+        width: 50%;
+    }
+
+
+    #programs
+    .mp3-services-intro h2 {
+
+        font-size: 28px;
+
+        letter-spacing: -1.2px;
+    }
+
+
+    #programs
+    .mp3-service-item h2 {
+
+        font-size: 18px;
+    }
+
+
+ #programs
+.mp3-service-item p {
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    letter-spacing: 0;
+
+    max-width: 170px;
+}
+
+#programs
+.mp3-services-list-item {
+
+    min-height: 104px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+}
+
+#programs
+.mp3-service-icon {
+
+    margin-bottom: 7px;
+
+    font-size: 15px;
+}
+
+#programs
+.mp3-services-list-item h3 {
+
+    margin-bottom: 6px;
+
+    font-size: 14px;
+
+    line-height: 1.15;
+}
+
+#programs
+.mp3-services-list-item p {
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #programs
+    .mp3-services-intro,
+
+    #programs
+    .mp3-service-item,
+
+    #programs
+    .mp3-services-final,
+
+    .mp3-transition-mic {
+
+        transition: none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE SECTION 03 RESPONSIVE MEDIA
+========================================================= */
+
+}
+
+/* =========================================================
+   SECTION 04 — WHY MPOWER TALK
+   MIC CENTRE → RIGHT
+   CONTENT LEFT
+========================================================= */
+
+#why-mpower.mp4-final-section {
+
+    position: relative;
+
+    width: 100%;
+
+    /*
+       IMPORTANT:
+       Enough scroll space for the mic
+       to travel from centre → right.
+    */
+    height: 300vh;
+
+    margin: 0;
+
+    padding: 0;
+
+    background:
+        radial-gradient(
+            circle at 78% 50%,
+            rgba(113, 141, 0, .08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #fcfbf3 0%,
+            #f6f3e8 100%
+        );
+
+    overflow: visible;
+
+    isolation: isolate;
+
+    /*
+       Do NOT use negative margin.
+       This prevents overlap with Section 03.
+    */
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+#why-mpower .mp4-final-track {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   STICKY SCREEN
+========================================================= */
+
+#why-mpower .mp4-final-stage {
+
+    position: sticky;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    height: 100svh;
+
+    min-height: 620px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+#why-mpower .mp4-final-stage::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(24,61,41,.022) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(24,61,41,.022) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        70px 70px;
+}
+
+
+/* =========================================================
+   RIGHT LARGE CIRCLE
+========================================================= */
+
+#why-mpower .mp4-final-stage::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 48vw;
+
+    height: 48vw;
+
+    max-width: 700px;
+
+    max-height: 700px;
+
+    min-width: 400px;
+
+    min-height: 400px;
+
+    right: -5vw;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border:
+        1px solid
+        rgba(
+            24,
+            61,
+            41,
+            .08
+        );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+#why-mpower .mp4-final-content {
+
+    position: absolute;
+
+    left: 7%;
+
+    top: 50%;
+
+    width: 47vw;
+
+    max-width: 680px;
+
+    z-index: 30;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate3d(
+            -35px,
+            -50%,
+            0
+        );
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+#why-mpower .mp4-final-kicker {
+
+    margin-bottom: 18px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    color: #718d00;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+#why-mpower .mp4-final-heading {
+
+    margin: 0;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    perspective: 900px;
+
+    font-family:
+        "Gloock",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            44px,
+            5vw,
+            78px
+        );
+
+    line-height: .89;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 400;
+
+    color: #183d29;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FLIP WORDS
+========================================================= */
+
+#why-mpower .mp4-flip-word {
+
+    display: block;
+
+    opacity: 0;
+
+    transform:
+        rotateX(-90deg)
+        translateY(28px);
+
+    transform-origin:
+        left bottom;
+
+    transform-style:
+        preserve-3d;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+#why-mpower .mp4-flip-word.mp4-brand {
+
+    margin-top: 6px;
+
+    color: #d76545;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+#why-mpower .mp4-final-divider {
+
+    width: 0;
+
+    height: 2px;
+
+    margin:
+        25px
+        0
+        20px;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #718d00,
+            #d76545
+        );
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+#why-mpower .mp4-final-description {
+
+    max-width: 500px;
+
+    margin: 0;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size:
+        clamp(
+            17px,
+            1.5vw,
+            22px
+        );
+
+    line-height: 1.5;
+
+    color:
+        rgba(
+            24,
+            61,
+            41,
+            .68
+        );
+
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+}
+
+
+/* =========================================================
+   POINTS
+========================================================= */
+
+#why-mpower .mp4-final-points {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 28px;
+
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+}
+
+
+#why-mpower .mp4-final-point {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 44px;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid
+        rgba(
+            24,
+            61,
+            41,
+            .10
+        );
+}
+
+
+#why-mpower .mp4-final-point span {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #d76545;
+}
+
+
+#why-mpower .mp4-final-point strong {
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #183d29;
+}
+
+
+/* =========================================================
+   RIGHT MIC DESTINATION
+========================================================= */
+
+#why-mpower .mp4-final-mic-zone {
+
+    position: absolute;
+
+    right: 7%;
+
+    top: 50%;
+
+    width: 40vw;
+
+    height: 70vh;
+
+    transform:
+        translateY(-50%);
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HALOS
+========================================================= */
+
+#why-mpower .mp4-final-halo {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+#why-mpower .halo-1 {
+
+    width: 350px;
+
+    height: 350px;
+
+    border:
+        1px solid
+        rgba(
+            113,
+            141,
+            0,
+            .18
+        );
+
+    animation:
+        mp4FinalHalo
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+#why-mpower .halo-2 {
+
+    width: 500px;
+
+    height: 500px;
+
+    border:
+        1px solid
+        rgba(
+            215,
+            101,
+            69,
+            .09
+        );
+
+    animation:
+        mp4FinalHalo
+        5s
+        ease-in-out
+        .4s
+        infinite;
+}
+
+
+@keyframes mp4FinalHalo {
+
+    0%,
+    100% {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(.94);
+
+        opacity: .30;
+    }
+
+    50% {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1.03);
+
+        opacity: .60;
+    }
+}
+
+
+/* =========================================================
+   INNER RING
+========================================================= */
+
+#why-mpower .mp4-final-ring {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 250px;
+
+    height: 250px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border:
+        1px dashed
+        rgba(
+            24,
+            61,
+            41,
+            .12
+        );
+
+    border-radius: 50%;
+
+    animation:
+        mp4FinalRing
+        24s
+        linear
+        infinite;
+}
+
+
+@keyframes mp4FinalRing {
+
+    from {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   REAL MOVING MIC CREATED BY SECTION 03
+========================================================= */
+
+body .mp3-transition-mic {
+
+    z-index: 9999 !important;
+
+    pointer-events: none !important;
+
+    will-change:
+        left,
+        top,
+        width,
+        height;
+
+}
+
+
+/* =========================================================
+   SCROLL NOTE
+========================================================= */
+
+#why-mpower .mp4-final-scroll {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 28px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 40;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(
+            24,
+            61,
+            41,
+            .42
+        );
+}
+
+
+#why-mpower .mp4-final-scroll i {
+
+    display: block;
+
+    width: 1px;
+
+    height: 28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #718d00,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media
+(max-width:1100px)
+and
+(min-width:701px) {
+
+    #why-mpower .mp4-final-content {
+
+        left: 5%;
+
+        width: 49vw;
+    }
+
+
+    #why-mpower .mp4-final-heading {
+
+        font-size:
+            clamp(
+                40px,
+                5.2vw,
+                68px
+            );
+    }
+
+
+    #why-mpower .mp4-final-mic-zone {
+
+        right: 2%;
+
+        width: 44vw;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:700px) {
+
+    #why-mpower.mp4-final-section {
+
+        height: 280vh;
+    }
+
+
+    #why-mpower .mp4-final-stage {
+
+        min-height: 560px;
+    }
+
+
+    #why-mpower .mp4-final-stage::after {
+
+        width: 85vw;
+
+        height: 85vw;
+
+        min-width: 300px;
+
+        min-height: 300px;
+
+        right: -25vw;
+    }
+
+
+    #why-mpower .mp4-final-content {
+
+        left: 5%;
+
+        top: 54%;
+
+        width: 48%;
+
+        max-width: 220px;
+    }
+
+
+    #why-mpower .mp4-final-kicker {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 13px;
+    }
+
+
+    #why-mpower .mp4-final-heading {
+
+        font-size:
+            clamp(
+                29px,
+                8vw,
+                45px
+            );
+
+        letter-spacing: -1.5px;
+
+        line-height: .88;
+    }
+
+
+    #why-mpower .mp4-final-description {
+
+        font-size: 9px;
+
+        line-height: 1.5;
+    }
+
+
+    #why-mpower .mp4-final-points {
+
+        gap: 8px;
+
+        margin-top: 17px;
+    }
+
+
+    #why-mpower .mp4-final-point {
+
+        gap: 8px;
+
+        min-height: 30px;
+
+        padding-bottom: 7px;
+    }
+
+
+    #why-mpower .mp4-final-point span {
+
+        font-size: 8px;
+    }
+
+
+    #why-mpower .mp4-final-point strong {
+
+        font-size: 9px;
+    }
+
+
+    #why-mpower .mp4-final-mic-zone {
+
+        right: -5%;
+
+        width: 57vw;
+
+        height: 60vh;
+    }
+
+
+    #why-mpower .halo-1 {
+
+        width: 230px;
+
+        height: 230px;
+    }
+
+
+    #why-mpower .halo-2 {
+
+        width: 310px;
+
+        height: 310px;
+    }
+
+
+    #why-mpower .mp4-final-ring {
+
+        width: 165px;
+
+        height: 165px;
+    }
+
+
+    #why-mpower .mp4-final-scroll {
+
+        bottom: 18px;
+
+        font-size: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce) {
+
+    #why-mpower .mp4-final-halo,
+    #why-mpower .mp4-final-ring {
+
+        animation: none !important;
+    }
+
+}
+
+/* =========================================================
+   MPOWER TALK — UPCOMING EVENTS
+   EXPANDING CARDS + ANIMATED EVENT INFORMATION
+========================================================= */
+
+.mp5-events {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    margin-top: -6vh;
+
+    padding:
+        72px 4vw 85px;
+
+    background: #f5efe3;
+
+    color: #17391f;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.mp5-events-head {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    margin:
+        0 auto 38px;
+
+    text-align: center;
+}
+
+
+.mp5-section-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: .25em;
+
+    color: #b5a900;
+
+    text-transform: uppercase;
+}
+
+
+.mp5-events-head h2 {
+
+    margin: 0;
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            54px,
+            7.3vw,
+            104px
+        );
+
+    font-weight: 400;
+
+    line-height: .82;
+
+    letter-spacing: -.055em;
+
+    color: #17391f;
+
+    text-transform: uppercase;
+}
+
+
+.mp5-events-head h2 span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #d95f3f;
+}
+
+
+.mp5-events-head p {
+
+    margin:
+        18px auto 0;
+
+    max-width: 520px;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    color:
+        rgba(
+            23,
+            37,
+            26,
+            .58
+        );
+}
+
+
+/* =========================================================
+   CARD STAGE
+========================================================= */
+
+.mp5-card-stage {
+
+    position: relative;
+
+    width: 100%;
+
+    height:
+        clamp(
+            480px,
+            67vh,
+            700px
+        );
+
+    display: flex;
+
+    gap: 9px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.mp5-event-card {
+
+    position: relative;
+
+    flex:
+        0 0 76px;
+
+    min-width: 0;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #17391f;
+
+    cursor: pointer;
+
+    transition:
+        flex-basis
+        1.05s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        ),
+
+        border-radius
+        .7s
+        ease,
+
+        filter
+        .7s
+        ease,
+
+        transform
+        .7s
+        ease;
+
+    will-change:
+        flex-basis,
+        transform;
+}
+
+
+.mp5-event-card.is-active {
+
+    flex:
+        1 1 auto;
+
+    cursor:
+        default;
+
+    border-radius:
+        28px;
+
+    filter:
+        saturate(1);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.mp5-card-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.mp5-card-image img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+    transform:
+        scale(1.11);
+
+    filter:
+        saturate(.75)
+        contrast(1.03)
+        brightness(.75);
+
+    transition:
+        transform
+        1.25s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        ),
+
+        filter
+        .9s ease;
+}
+
+
+.mp5-event-card.is-active
+.mp5-card-image img {
+
+    transform:
+        scale(1);
+
+    filter:
+        saturate(.94)
+        contrast(1.02)
+        brightness(.73);
+}
+
+
+/* =========================================================
+   DARK GRADIENT
+========================================================= */
+
+.mp5-card-shade {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10,18,12,.08) 0%,
+            rgba(10,18,12,.08) 35%,
+            rgba(10,18,12,.76) 100%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity .7s ease;
+}
+
+
+.mp5-event-card.is-active
+.mp5-card-shade {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   EVENT INFORMATION
+========================================================= */
+
+.mp5-event-info {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    padding:
+        28px 30px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity
+        .45s ease,
+
+        visibility
+        0s linear .45s;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-info {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity
+        .45s
+        .25s
+        ease,
+
+        visibility
+        0s
+        linear
+        0s;
+}
+
+
+/* =========================================================
+   TOP LINE
+========================================================= */
+
+.mp5-event-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.mp5-event-label {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: .18em;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .76
+        );
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateY(-16px);
+}
+
+
+.mp5-event-status {
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .24
+        );
+
+    border-radius: 30px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .13em;
+
+    color: #fff9ed;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateY(-16px);
+}
+
+
+/* =========================================================
+   MAIN EVENT AREA
+========================================================= */
+
+.mp5-event-main {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 30px;
+
+    opacity: 0;
+
+    transform:
+        translateY(28px);
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.mp5-event-date {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+
+.mp5-event-date strong {
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            58px,
+            7vw,
+            92px
+        );
+
+    font-weight: 400;
+
+    line-height: .72;
+
+    letter-spacing:
+        -.055em;
+
+    color: #d9c85c;
+}
+
+
+.mp5-event-date span {
+
+    margin-bottom: 4px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    letter-spacing: .13em;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .78
+        );
+}
+
+
+/* =========================================================
+   EVENT DETAILS
+========================================================= */
+
+.mp5-event-details {
+
+    max-width: 690px;
+}
+
+
+.mp5-event-kicker {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .2em;
+
+    color: #d95f3f;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+}
+
+
+.mp5-event-details h3 {
+
+    margin: 0;
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            34px,
+            4.7vw,
+            68px
+        );
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -.045em;
+
+    color: #fff9ed;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+}
+
+
+.mp5-event-details h3 em {
+
+    display: block;
+
+    font-style: normal;
+
+    color: #d95f3f;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.mp5-event-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+
+    margin-top: 19px;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+}
+
+
+.mp5-event-meta span {
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .76
+        );
+}
+
+
+.mp5-event-meta b {
+
+    margin-right: 7px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 500;
+
+    letter-spacing: .15em;
+
+    color: #d9c85c;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.mp5-event-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .17
+        );
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .13em;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .56
+        );
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+}
+
+/* =========================================================
+   STAGGER ANIMATION
+========================================================= */
+
+.mp5-event-card.is-active
+.mp5-event-label {
+
+    animation:
+        mp5TextIn
+        .65s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .25s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-status {
+
+    animation:
+        mp5TextIn
+        .65s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .34s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-main {
+
+    animation:
+        mp5MainIn
+        .8s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .22s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-kicker {
+
+    animation:
+        mp5TextIn
+        .55s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .45s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-details h3 {
+
+    animation:
+        mp5TextIn
+        .75s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .52s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-meta {
+
+    animation:
+        mp5TextIn
+        .6s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .66s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-bottom {
+
+    animation:
+        mp5TextIn
+        .6s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .78s
+        forwards;
+}
+
+
+@keyframes mp5TextIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes mp5MainIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(32px)
+            scale(.985);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   SIDE CARDS
+========================================================= */
+
+.mp5-event-card:not(.is-active) {
+
+    filter:
+        saturate(.68);
+}
+
+
+.mp5-event-card:not(.is-active)
+.mp5-event-info {
+
+    display: none;
+}
+
+
+.mp5-event-card:not(.is-active):hover {
+
+    transform:
+        translateY(-5px);
+
+    filter:
+        saturate(.9);
+}
+
+
+.mp5-event-card:not(.is-active):hover
+.mp5-card-image img {
+
+    transform:
+        scale(1.05);
+}
+
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.mp5-card-hint {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.mp5-card-hint span {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px !important;
+
+    letter-spacing: .16em;
+
+    color:
+        rgba(
+            23,
+            37,
+            26,
+            .58
+        );
+}
+
+
+.mp5-card-hint i {
+
+    display: block;
+
+    width: 30px;
+
+    height: 1px;
+
+    background: #d95f3f;
+
+    transform-origin: left;
+
+    animation:
+        mp5HintLine
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes mp5HintLine {
+
+    0%,
+    100% {
+        transform:
+            scaleX(.4);
+    }
+
+    50% {
+        transform:
+            scaleX(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .mp5-events {
+
+        margin-top: -4vh;
+
+        padding:
+            60px
+            24px
+            70px;
+    }
+
+
+    .mp5-events-head {
+
+        margin-bottom: 32px;
+    }
+
+
+    .mp5-card-stage {
+
+        height: 62vh;
+
+        gap: 7px;
+    }
+
+
+    .mp5-event-card {
+
+        flex-basis: 62px;
+    }
+
+
+    .mp5-event-info {
+
+        padding:
+            22px;
+    }
+
+
+    .mp5-event-main {
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .mp5-events {
+
+        min-height: 100svh;
+
+        margin-top: -8vh;
+
+        padding:
+            52px
+            14px
+            50px;
+    }
+
+
+    .mp5-events-head {
+
+        margin-bottom: 25px;
+    }
+
+
+    .mp5-section-label {
+
+        font-size: 7px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .mp5-events-head h2 {
+
+        font-size:
+            clamp(
+                42px,
+                12.5vw,
+                58px
+            );
+
+        line-height: .84;
+    }
+
+
+    .mp5-events-head p {
+
+        width: 92%;
+
+        margin-top: 14px;
+
+        font-size: 9.5px;
+    }
+
+
+    .mp5-card-stage {
+
+        height:
+            64svh;
+
+        min-height:
+            430px;
+
+        gap: 5px;
+
+        border-radius:
+            19px;
+    }
+
+
+    .mp5-event-card {
+
+        flex:
+            0 0 42px;
+
+        border-radius:
+            15px;
+    }
+
+
+    .mp5-event-card.is-active {
+
+        flex:
+            1 1 auto;
+
+        border-radius:
+            19px;
+    }
+
+
+    .mp5-card-image img {
+
+        transform:
+            scale(1.08);
+    }
+
+
+    .mp5-event-card.is-active
+    .mp5-card-image img {
+
+        transform:
+            scale(1);
+    }
+
+
+    /* INFO */
+
+    .mp5-event-info {
+
+        padding:
+            17px 17px 15px;
+    }
+
+
+    .mp5-event-top {
+
+        gap: 8px;
+    }
+
+
+    .mp5-event-label {
+
+        font-size: 7px;
+
+        letter-spacing: .12em;
+    }
+
+
+    .mp5-event-status {
+
+        padding:
+            5px 8px;
+
+        font-size: 6px;
+    }
+
+
+    .mp5-event-main {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 13px;
+    }
+
+
+    .mp5-event-date {
+
+        gap: 6px;
+    }
+
+
+    .mp5-event-date strong {
+
+        font-size:
+            clamp(
+                50px,
+                15vw,
+                65px
+            );
+    }
+
+
+    .mp5-event-date span {
+
+        font-size: 8px;
+
+        margin-bottom: 3px;
+    }
+
+
+    .mp5-event-details {
+
+        max-width: 100%;
+    }
+
+
+    .mp5-event-kicker {
+
+        margin-bottom: 7px;
+
+        font-size: 7px;
+
+        letter-spacing: .16em;
+    }
+
+
+    .mp5-event-details h3 {
+
+        font-size:
+            clamp(
+                28px,
+                8.5vw,
+                42px
+            );
+
+        line-height: .92;
+    }
+
+
+    .mp5-event-meta {
+
+        gap: 14px;
+
+        margin-top: 13px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .mp5-event-meta span {
+
+        font-size: 10px;
+    }
+
+
+    .mp5-event-meta b {
+
+        font-size: 6px;
+
+        margin-right: 4px;
+    }
+
+
+    .mp5-event-bottom {
+
+        padding-top: 12px;
+
+        font-size: 6.5px;
+
+        letter-spacing: .1em;
+    }
+
+    .mp5-card-hint {
+
+        margin-top: 14px;
+    }
+
+
+   .mp5-card-hint span {
+
+    font-size: 10px !important;
+
+    letter-spacing: .12em;
+}
+
+
+    .mp5-event-card:not(.is-active):hover {
+
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .mp5-events {
+
+        margin-top: -9vh;
+
+        padding:
+            46px
+            12px
+            45px;
+    }
+
+
+    .mp5-events-head h2 {
+
+        font-size: 39px;
+    }
+
+
+    .mp5-card-stage {
+
+        height: 61svh;
+
+        min-height: 390px;
+
+        gap: 4px;
+    }
+
+
+    .mp5-event-card {
+
+        flex-basis: 36px;
+
+        border-radius: 13px;
+    }
+
+
+    .mp5-event-card.is-active {
+
+        border-radius: 17px;
+    }
+
+
+    .mp5-event-info {
+
+        padding:
+            14px 13px 13px;
+    }
+
+
+    .mp5-event-details h3 {
+
+        font-size: 26px;
+    }
+
+
+    .mp5-event-meta span {
+
+        font-size: 9px;
+    }
+
+}
+/* =========================================================
+   UPCOMING EVENTS — MOBILE TITLE FIX
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #upcoming-events .mp5-event-details {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    #upcoming-events .mp5-event-details h3 {
+        font-size: 24px !important;
+        line-height: .94 !important;
+        letter-spacing: -.035em !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+    }
+
+    #upcoming-events .mp5-event-main {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    #upcoming-events .mp5-event-date {
+        flex-shrink: 0 !important;
+    }
+
+    #upcoming-events .mp5-event-meta {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    #upcoming-events .mp5-event-details h3 {
+        font-size: 22px !important;
+        line-height: .95 !important;
+        letter-spacing: -.03em !important;
+    }
+
+}
+
+
+    #events .mp4-slice {
+        height: 2.5vh !important;
+    }
+
+    #events .mp4-slice:nth-child(1) {
+        top: 17% !important;
+    }
+
+    #events .mp4-slice:nth-child(2) {
+        top: 30% !important;
+    }
+
+    #events .mp4-slice:nth-child(3) {
+        top: 43% !important;
+    }
+
+    #events .mp4-slice:nth-child(4) {
+        top: 56% !important;
+    }
+
+    #events .mp4-slice:nth-child(5) {
+        top: 69% !important;
+    }
+
+    #events .mp4-slice:nth-child(6) {
+        top: 82% !important;
+    }
+
+/* =========================================================
+   MPOWER TALK — UPCOMING EVENTS
+   EXPANDING CARDS + ANIMATED EVENT INFORMATION
+========================================================= */
+
+.mp5-events {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    margin-top: -6vh;
+
+    padding:
+        72px 4vw 85px;
+
+    background: #f5efe3;
+
+    color: #17391f;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.mp5-events-head {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    margin:
+        0 auto 38px;
+
+    text-align: center;
+}
+
+
+.mp5-section-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: .25em;
+
+    color: #b5a900;
+
+    text-transform: uppercase;
+}
+
+
+.mp5-events-head h2 {
+
+    margin: 0;
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            54px,
+            7.3vw,
+            104px
+        );
+
+    font-weight: 400;
+
+    line-height: .82;
+
+    letter-spacing: -.055em;
+
+    color: #17391f;
+
+    text-transform: uppercase;
+}
+
+
+.mp5-events-head h2 span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #d95f3f;
+}
+
+
+.mp5-events-head p {
+
+    margin:
+        18px auto 0;
+
+    max-width: 520px;
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    color:
+        rgba(
+            23,
+            37,
+            26,
+            .58
+        );
+}
+
+
+/* =========================================================
+   CARD STAGE
+========================================================= */
+
+.mp5-card-stage {
+
+    position: relative;
+
+    width: 100%;
+
+    height:
+        clamp(
+            480px,
+            67vh,
+            700px
+        );
+
+    display: flex;
+
+    gap: 9px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.mp5-event-card {
+
+    position: relative;
+
+    flex:
+        0 0 76px;
+
+    min-width: 0;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #17391f;
+
+    cursor: pointer;
+
+    transition:
+        flex-basis
+        1.05s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        ),
+
+        border-radius
+        .7s
+        ease,
+
+        filter
+        .7s
+        ease,
+
+        transform
+        .7s
+        ease;
+
+    will-change:
+        flex-basis,
+        transform;
+}
+
+
+.mp5-event-card.is-active {
+
+    flex:
+        1 1 auto;
+
+    cursor:
+        default;
+
+    border-radius:
+        28px;
+
+    filter:
+        saturate(1);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.mp5-card-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.mp5-card-image img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+    transform:
+        scale(1.11);
+
+    filter:
+        saturate(.75)
+        contrast(1.03)
+        brightness(.75);
+
+    transition:
+        transform
+        1.25s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        ),
+
+        filter
+        .9s ease;
+}
+
+
+.mp5-event-card.is-active
+.mp5-card-image img {
+
+    transform:
+        scale(1);
+
+    filter:
+        saturate(.94)
+        contrast(1.02)
+        brightness(.73);
+}
+
+
+/* =========================================================
+   DARK GRADIENT
+========================================================= */
+
+.mp5-card-shade {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10,18,12,.08) 0%,
+            rgba(10,18,12,.08) 35%,
+            rgba(10,18,12,.76) 100%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity .7s ease;
+}
+
+
+.mp5-event-card.is-active
+.mp5-card-shade {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   EVENT INFORMATION
+========================================================= */
+
+.mp5-event-info {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    padding:
+        28px 30px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity
+        .45s ease,
+
+        visibility
+        0s linear .45s;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-info {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity
+        .45s
+        .25s
+        ease,
+
+        visibility
+        0s
+        linear
+        0s;
+}
+
+
+/* =========================================================
+   TOP LINE
+========================================================= */
+
+.mp5-event-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.mp5-event-label {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: .18em;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .76
+        );
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateY(-16px);
+}
+
+
+.mp5-event-status {
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .24
+        );
+
+    border-radius: 30px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .13em;
+
+    color: #fff9ed;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateY(-16px);
+}
+
+
+/* =========================================================
+   MAIN EVENT AREA
+========================================================= */
+
+.mp5-event-main {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 30px;
+
+    opacity: 0;
+
+    transform:
+        translateY(28px);
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.mp5-event-date {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+
+.mp5-event-date strong {
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            58px,
+            7vw,
+            92px
+        );
+
+    font-weight: 400;
+
+    line-height: .72;
+
+    letter-spacing:
+        -.055em;
+
+    color: #d9c85c;
+}
+
+
+.mp5-event-date span {
+
+    margin-bottom: 4px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    letter-spacing: .13em;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .78
+        );
+}
+
+
+/* =========================================================
+   EVENT DETAILS
+========================================================= */
+
+.mp5-event-details {
+
+    max-width: 690px;
+}
+
+
+.mp5-event-kicker {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .2em;
+
+    color: #d95f3f;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+}
+
+
+.mp5-event-details h3 {
+
+    margin: 0;
+
+    font-family:
+        "Gloock",
+        serif;
+
+    font-size:
+        clamp(
+            34px,
+            4.7vw,
+            68px
+        );
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -.045em;
+
+    color: #fff9ed;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+}
+
+
+.mp5-event-details h3 em {
+
+    display: block;
+
+    font-style: normal;
+
+    color: #d95f3f;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.mp5-event-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+
+    margin-top: 19px;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+}
+
+
+.mp5-event-meta span {
+
+    font-family:
+        "Syne",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .76
+        );
+}
+
+
+.mp5-event-meta b {
+
+    margin-right: 7px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 500;
+
+    letter-spacing: .15em;
+
+    color: #d9c85c;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.mp5-event-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .17
+        );
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .13em;
+
+    color:
+        rgba(
+            255,
+            249,
+            238,
+            .56
+        );
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+}
+
+/* =========================================================
+   STAGGER ANIMATION
+========================================================= */
+
+.mp5-event-card.is-active
+.mp5-event-label {
+
+    animation:
+        mp5TextIn
+        .65s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .25s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-status {
+
+    animation:
+        mp5TextIn
+        .65s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .34s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-main {
+
+    animation:
+        mp5MainIn
+        .8s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .22s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-kicker {
+
+    animation:
+        mp5TextIn
+        .55s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .45s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-details h3 {
+
+    animation:
+        mp5TextIn
+        .75s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .52s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-meta {
+
+    animation:
+        mp5TextIn
+        .6s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .66s
+        forwards;
+}
+
+
+.mp5-event-card.is-active
+.mp5-event-bottom {
+
+    animation:
+        mp5TextIn
+        .6s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
+        .78s
+        forwards;
+}
+
+
+@keyframes mp5TextIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes mp5MainIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(32px)
+            scale(.985);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   SIDE CARDS
+========================================================= */
+
+.mp5-event-card:not(.is-active) {
+
+    filter:
+        saturate(.68);
+}
+
+
+.mp5-event-card:not(.is-active)
+.mp5-event-info {
+
+    display: none;
+}
+
+
+.mp5-event-card:not(.is-active):hover {
+
+    transform:
+        translateY(-5px);
+
+    filter:
+        saturate(.9);
+}
+
+
+.mp5-event-card:not(.is-active):hover
+.mp5-card-image img {
+
+    transform:
+        scale(1.05);
+}
+
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.mp5-card-hint {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.mp5-card-hint span {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px !important;
+
+    letter-spacing: .16em;
+
+    color:
+        rgba(
+            23,
+            37,
+            26,
+            .58
+        );
+}
+
+
+.mp5-card-hint i {
+
+    display: block;
+
+    width: 30px;
+
+    height: 1px;
+
+    background: #d95f3f;
+
+    transform-origin: left;
+
+    animation:
+        mp5HintLine
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes mp5HintLine {
+
+    0%,
+    100% {
+        transform:
+            scaleX(.4);
+    }
+
+    50% {
+        transform:
+            scaleX(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .mp5-events {
+
+        margin-top: -4vh;
+
+        padding:
+            60px
+            24px
+            70px;
+    }
+
+
+    .mp5-events-head {
+
+        margin-bottom: 32px;
+    }
+
+
+    .mp5-card-stage {
+
+        height: 62vh;
+
+        gap: 7px;
+    }
+
+
+    .mp5-event-card {
+
+        flex-basis: 62px;
+    }
+
+
+    .mp5-event-info {
+
+        padding:
+            22px;
+    }
+
+
+    .mp5-event-main {
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .mp5-events {
+
+        min-height: 100svh;
+
+        margin-top: -8vh;
+
+        padding:
+            52px
+            14px
+            50px;
+    }
+
+
+    .mp5-events-head {
+
+        margin-bottom: 25px;
+    }
+
+
+    .mp5-section-label {
+
+        font-size: 7px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .mp5-events-head h2 {
+
+        font-size:
+            clamp(
+                42px,
+                12.5vw,
+                58px
+            );
+
+        line-height: .84;
+    }
+
+
+    .mp5-events-head p {
+
+        width: 92%;
+
+        margin-top: 14px;
+
+        font-size: 9.5px;
+    }
+
+
+    .mp5-card-stage {
+
+        height:
+            64svh;
+
+        min-height:
+            430px;
+
+        gap: 5px;
+
+        border-radius:
+            19px;
+    }
+
+
+    .mp5-event-card {
+
+        flex:
+            0 0 42px;
+
+        border-radius:
+            15px;
+    }
+
+
+    .mp5-event-card.is-active {
+
+        flex:
+            1 1 auto;
+
+        border-radius:
+            19px;
+    }
+
+
+    .mp5-card-image img {
+
+        transform:
+            scale(1.08);
+    }
+
+
+    .mp5-event-card.is-active
+    .mp5-card-image img {
+
+        transform:
+            scale(1);
+    }
+
+
+    /* INFO */
+
+    .mp5-event-info {
+
+        padding:
+            17px 17px 15px;
+    }
+
+
+    .mp5-event-top {
+
+        gap: 8px;
+    }
+
+
+    .mp5-event-label {
+
+        font-size: 7px;
+
+        letter-spacing: .12em;
+    }
+
+
+    .mp5-event-status {
+
+        padding:
+            5px 8px;
+
+        font-size: 6px;
+    }
+
+
+    .mp5-event-main {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 13px;
+    }
+
+
+    .mp5-event-date {
+
+        gap: 6px;
+    }
+
+
+    .mp5-event-date strong {
+
+        font-size:
+            clamp(
+                50px,
+                15vw,
+                65px
+            );
+    }
+
+
+    .mp5-event-date span {
+
+        font-size: 8px;
+
+        margin-bottom: 3px;
+    }
+
+
+    .mp5-event-details {
+
+        max-width: 100%;
+    }
+
+
+    .mp5-event-kicker {
+
+        margin-bottom: 7px;
+
+        font-size: 7px;
+
+        letter-spacing: .16em;
+    }
+
+
+    .mp5-event-details h3 {
+
+        font-size:
+            clamp(
+                28px,
+                8.5vw,
+                42px
+            );
+
+        line-height: .92;
+    }
+
+
+    .mp5-event-meta {
+
+        gap: 14px;
+
+        margin-top: 13px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .mp5-event-meta span {
+
+        font-size: 10px;
+    }
+
+
+    .mp5-event-meta b {
+
+        font-size: 6px;
+
+        margin-right: 4px;
+    }
+
+
+    .mp5-event-bottom {
+
+        padding-top: 12px;
+
+        font-size: 6.5px;
+
+        letter-spacing: .1em;
+    }
+
+    .mp5-card-hint {
+
+        margin-top: 14px;
+    }
+
+
+   .mp5-card-hint span {
+
+    font-size: 10px !important;
+
+    letter-spacing: .12em;
+}
+
+
+    .mp5-event-card:not(.is-active):hover {
+
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .mp5-events {
+
+        margin-top: -9vh;
+
+        padding:
+            46px
+            12px
+            45px;
+    }
+
+
+    .mp5-events-head h2 {
+
+        font-size: 39px;
+    }
+
+
+    .mp5-card-stage {
+
+        height: 61svh;
+
+        min-height: 390px;
+
+        gap: 4px;
+    }
+
+
+    .mp5-event-card {
+
+        flex-basis: 36px;
+
+        border-radius: 13px;
+    }
+
+
+    .mp5-event-card.is-active {
+
+        border-radius: 17px;
+    }
+
+
+    .mp5-event-info {
+
+        padding:
+            14px 13px 13px;
+    }
+
+
+    .mp5-event-details h3 {
+
+        font-size: 26px;
+    }
+
+
+    .mp5-event-meta span {
+
+        font-size: 9px;
+    }
+
+}
+/* =========================================================
+   UPCOMING EVENTS — MOBILE TITLE FIX
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #upcoming-events .mp5-event-details {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    #upcoming-events .mp5-event-details h3 {
+        font-size: 24px !important;
+        line-height: .94 !important;
+        letter-spacing: -.035em !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+    }
+
+    #upcoming-events .mp5-event-main {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    #upcoming-events .mp5-event-date {
+        flex-shrink: 0 !important;
+    }
+
+    #upcoming-events .mp5-event-meta {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    #upcoming-events .mp5-event-details h3 {
+        font-size: 22px !important;
+        line-height: .95 !important;
+        letter-spacing: -.03em !important;
+    }
+
+}

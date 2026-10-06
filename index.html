@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MpowerTalk</title>
+
+    <!-- Distinctive Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Gloock&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="sections.css">
+
+</head>
+
+<body>
+
+    <div class="loader" id="loader">
+
+        <!-- Soft background -->
+        <div class="glow"></div>
+
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+
+        <!-- Small floating dots -->
+        <span class="dot dot-1"></span>
+        <span class="dot dot-2"></span>
+        <span class="dot dot-3"></span>
+        <span class="dot dot-4"></span>
+
+
+        <!-- Main logo -->
+        <div class="logo-area">
+
+            <div class="brand" aria-label="MpowerTalk">
+
+                <span class="letter m">m</span>
+
+                <span class="letter p">P</span>
+                <span class="letter o">O</span>
+                <span class="letter w">W</span>
+                <span class="letter e">E</span>
+                <span class="letter r">R</span>
+
+                <span class="letter t">T</span>
+                <span class="letter a">A</span>
+                <span class="letter l">L</span>
+                <span class="letter k">K</span>
+
+            </div>
+
+
+            <!-- Logo underline -->
+            <div class="underline">
+                <span></span>
+            </div>
+
+
+            <!-- Only required words -->
+            <div class="keywords">
+
+                <span>PEOPLE</span>
+
+                <b>•</b>
+
+                <span>IDEAS</span>
+
+                <b>•</b>
+
+                <span>INSPIRATION</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Exit layer -->
+        <div class="exit-layer" id="exitLayer"></div>
+
+    </div>
+
+    <!-- =====================================================
+     MPOWERTALK NAVBAR
+===================================================== -->
+
+<header class="site-header" id="siteHeader">
+
+    <nav class="navbar">
+
+        <!-- ===============================
+             BRAND
+        ================================ -->
+
+        <a href="#home" class="nav-brand" aria-label="MpowerTalk">
+
+            <span class="logo-m">
+                m
+            </span>
+
+            <span class="logo-power">
+                POWER
+            </span>
+
+            <span class="logo-talk">
+                TALK
+            </span>
+
+        </a>
+
+
+        <!-- ===============================
+             DESKTOP NAVIGATION
+        ================================ -->
+
+        <div class="nav-links">
+
+            <a href="#home" class="nav-link">
+                <span class="nav-text">Home</span>
+                <span class="nav-dot"></span>
+            </a>
+
+            <a href="#about" class="nav-link">
+                <span class="nav-text">About</span>
+                <span class="nav-dot"></span>
+            </a>
+
+            <a href="#programs" class="nav-link">
+                <span class="nav-text">Programs</span>
+                <span class="nav-dot"></span>
+            </a>
+
+            <a href="#events" class="nav-link">
+                <span class="nav-text">Events</span>
+                <span class="nav-dot"></span>
+            </a>
+
+            <a href="#community" class="nav-link">
+                <span class="nav-text">Community</span>
+                <span class="nav-dot"></span>
+            </a>
+
+            <a href="#contact" class="nav-link">
+                <span class="nav-text">Contact</span>
+                <span class="nav-dot"></span>
+            </a>
+
+        </div>
+
+
+        <!-- ===============================
+             RIGHT ACTIONS
+        ================================ -->
+
+        <div class="nav-actions">
+
+            <!-- DESKTOP BOOK BUTTON -->
+
+            <a href="#contact" class="session-btn">
+                <span>Book a Session</span>
+                <span class="session-arrow">↗</span>
+            </a>
+
+
+            <!-- MOBILE HAMBURGER -->
+
+            <button
+                class="menu-trigger"
+                id="menuTrigger"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =================================================
+         MOBILE MENU
+    ================================================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-inner">
+
+
+            <!-- MOBILE HEADER -->
+
+            <div class="mobile-menu-top">
+
+    <button
+        class="mobile-close"
+        id="mobileClose"
+        type="button"
+        aria-label="Close menu"
+    >
+        <span></span>
+        <span></span>
+    </button>
+
+</div>
+
+
+            <!-- MOBILE NAVIGATION -->
+
+           
+            <div class="mobile-links">
+
+    <a href="#home" class="mobile-link">
+        <strong>Home</strong>
+    </a>
+
+    <a href="#about" class="mobile-link">
+        <strong>About</strong>
+    </a>
+
+    <a href="#programs" class="mobile-link">
+        <strong>Programs</strong>
+    </a>
+
+    <a href="#events" class="mobile-link">
+        <strong>Events</strong>
+    </a>
+
+    <a href="#community" class="mobile-link">
+        <strong>Community</strong>
+    </a>
+
+    <a href="#contact" class="mobile-link">
+        <strong>Contact</strong>
+    </a>
+
+</div>
+
+
+            <!-- MOBILE FOOTER -->
+
+            <div class="mobile-menu-bottom">
+
+                PEOPLE
+                <span>•</span>
+                IDEAS
+                <span>•</span>
+                INSPIRATION
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     MPOWERTALK — FOUNDER
+===================================================== -->
+
+<section class="mp-founder-story" id="home">
+
+    <div class="mp-founder-container">
+
+        <!-- =========================
+             FOUNDER CONTENT
+        ========================== -->
+
+        <div class="mp-founder-content">
+
+            <div class="mp-founder-eyebrow">
+                THE FOUNDER
+            </div>
+
+            <h1 class="mp-founder-title">
+
+                <span class="founder-word word-1">
+                    THE
+                </span>
+
+                <span class="founder-word word-2">
+                    VOICE
+                </span>
+
+                <span class="founder-word word-3">
+                    BEHIND
+                </span>
+
+                <span class="founder-line">
+
+                    <span class="founder-word word-4">
+                        MPOWER
+                    </span>
+
+                    <span class="founder-word word-5">
+                        TALK
+                    </span>
+
+                </span>
+
+            </h1>
+
+            <div class="mp-founder-name">
+                Kishore Rachaiah
+            </div>
+
+            <div class="mp-founder-role">
+                Founder, mPOWER TALK
+            </div>
+
+            <div class="mp-founder-story-copy">
+
+                <p>
+                    Every idea begins somewhere.
+                </p>
+
+                <p>
+                    For Kishore, it began with a belief
+                    that meaningful conversations can
+                    change the way people think,
+                    connect and move forward.
+                </p>
+
+                <p>
+                    That belief became mPOWER TALK —
+                    a space created around people,
+                    ideas and conversations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FOUNDER VISUAL
+        ========================== -->
+
+        <div class="mp-founder-image-wrap">
+
+            <div class="mp-founder-image">
+
+                <img
+                    src="assets/images/mpower-founder-visual.png"
+                    alt="mPOWER TALK Founder"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     MPOWERTALK — SECTION 02
+     OUR BELIEF
+========================================================= -->
+
+<section class="voice-story" id="voiceStory">
+
+    <div class="voice-story-inner">
+
+        <!-- ================================================
+             LEFT INTRO
+        ================================================= -->
+
+        <div class="voice-belief">
+
+            <div class="voice-belief-kicker">
+                OUR BELIEF
+            </div>
+
+            <h2>
+                Every conversation
+                <br>
+                starts with a
+                <span>voice.</span>
+            </h2>
+
+        </div>
+
+
+        <!-- ================================================
+             MICROPHONE
+        ================================================= -->
+
+        <div class="voice-mic-stage">
+
+            <div class="voice-mic-glow"></div>
+
+            <div class="voice-mic-orbit voice-mic-orbit-1"></div>
+
+            <div class="voice-mic-orbit voice-mic-orbit-2"></div>
+
+            <img
+                class="voice-mic-image"
+                src="assets/images/mpower-mic.png"
+                alt="mPOWER TALK microphone"
+            >
+
+        </div>
+
+
+        <!-- ================================================
+             RIGHT SIDE — FOUR BELIEFS
+        ================================================= -->
+
+        <div class="voice-beliefs-list">
+
+            <!-- PEOPLE -->
+
+            <article class="voice-belief-card">
+
+                <div class="voice-card-media">
+                    <img
+                        src="assets/workshops/workshop-01.webp"
+                        alt=""
+                    >
+                </div>
+
+                <div class="voice-card-copy">
+
+                    <span class="voice-card-label">
+                        PEOPLE
+                    </span>
+
+                    <h3>
+                        Voices create
+                        connection.
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- IDEAS -->
+
+            <article class="voice-belief-card">
+
+                <div class="voice-card-media">
+                    <img
+                        src="assets/workshops/workshop-02.webp"
+                        alt=""
+                    >
+                </div>
+
+                <div class="voice-card-copy">
+
+                    <span class="voice-card-label">
+                        IDEAS
+                    </span>
+
+                    <h3>
+                        Ideas move when
+                        they are shared.
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- PERSPECTIVES -->
+
+            <article class="voice-belief-card">
+
+                <div class="voice-card-media">
+                    <img
+                        src="assets/workshops/workshop-03.webp"
+                        alt=""
+                    >
+                </div>
+
+                <div class="voice-card-copy">
+
+                    <span class="voice-card-label">
+                        PERSPECTIVES
+                    </span>
+
+                    <h3>
+                        Listening changes
+                        how we see.
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- CONVERSATIONS -->
+
+            <article class="voice-belief-card">
+
+                <div class="voice-card-media">
+                    <img
+                        src="assets/workshops/workshop-04.webp"
+                        alt=""
+                    >
+                </div>
+
+                <div class="voice-card-copy">
+
+                    <span class="voice-card-label">
+                        CONVERSATIONS
+                    </span>
+
+                    <h3>
+                        Conversations turn
+                        into possibility.
+                    </h3>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- ================================================
+             ABOUT MPOWERTALK
+        ================================================= -->
+
+        <div class="voice-about">
+
+            <div class="voice-about-inner">
+
+                <div class="voice-about-label">
+                    ABOUT MPOWERTALK
+                </div>
+
+                <h2>
+                    Conversations
+                    <span>that matter.</span>
+                </h2>
+
+                <p>
+                    mPOWER TALK is a space created around
+                    people, ideas and conversations
+                    bringing voices together to inspire,
+                    connect and create meaningful change.
+                </p>
+
+                <a
+                    href="#about"
+                    class="voice-about-link"
+                >
+                    EXPLORE MPOWERTALK
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     SECTION 03 — MPOWER TALK SERVICES
+     MIC JOURNEY → SERVICES
+===================================================== -->
+
+<section class="mp3-services" id="programs">
+
+    <div class="mp3-services-track">
+
+        <div class="mp3-services-stage">
+
+
+            <!-- =========================================
+                 INTRO
+                 MIC = RIGHT
+                 WORDS = LEFT
+            ========================================== -->
+
+            <!-- =========================================
+     SECTION 03 INTRO
+     EDITORIAL + COLORFUL
+========================================= -->
+
+<div class="mp3-services-intro">
+
+    <span>
+        OUR SERVICES
+    </span>
+
+    <h2>
+        <span class="mp3-intro-main">
+            Services provided by
+        </span>
+        <strong class="mp3-intro-brand">
+            mPOWER TALK.
+        </strong>
+    </h2>
+
+    <p>
+        Thoughtfully designed experiences that bring people,
+        ideas and conversations together to create real change.
+    </p>
+
+</div>
+
+            <!-- =========================================
+                 SERVICES
+                 MIC = CENTRE
+                 SERVICES = LEFT + RIGHT
+            ========================================== -->
+
+
+            <!-- SERVICE 01 -->
+
+            <article class="mp3-service-item is-left service-1">
+
+                <span class="mp3-service-kicker">
+                    WHAT WE DO
+                </span>
+
+                <h2>
+                    Public <strong>Speaking</strong>
+                </h2>
+
+                <p>
+                    Powerful voices for real impact.
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 02 -->
+
+            <article class="mp3-service-item is-right service-2">
+
+                <span class="mp3-service-kicker">
+                    LEARN & GROW
+                </span>
+
+                <h2>
+                    Workshops
+                </h2>
+
+                <p>
+                    Interactive learning for growth.
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 03 -->
+
+            <article class="mp3-service-item is-left service-3">
+
+                <span class="mp3-service-kicker">
+                    SHARE IDEAS
+                </span>
+
+                <h2>
+                    Panel <strong>Discussions</strong>
+                </h2>
+
+                <p>
+                    Diverse perspectives, bigger possibilities.
+                </p>
+
+            </article>
+
+
+            <!-- SERVICE 04 -->
+
+            <article class="mp3-service-item is-right service-4">
+
+                <span class="mp3-service-kicker">
+                    CONNECT
+                </span>
+
+                <h2>
+                    Corporate <strong>Events</strong>
+                </h2>
+
+                <p>
+                    Conversations that build stronger teams.
+                </p>
+
+            </article>
+
+
+            <!-- =========================================
+                 FINAL
+                 MIC = CENTRE
+                 OUR SERVICES = BELOW MIC
+            ========================================== -->
+
+            <div class="mp3-services-final">
+
+                <div class="mp3-final-kicker">
+                    WHAT WE CREATE
+                </div>
+
+                <h2>
+                    OUR <strong>SERVICES</strong>
+                </h2>
+
+
+                <div class="mp3-services-list">
+
+
+                    <div class="mp3-services-list-item">
+
+                        <span class="mp3-service-icon">
+                            ◉
+                        </span>
+
+                        <h3>
+                            Public Speaking
+                        </h3>
+
+                        <p>
+                            Powerful voices for real impact.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mp3-services-list-item">
+
+                        <span class="mp3-service-icon">
+                            ✳
+                        </span>
+
+                        <h3>
+                            Workshops
+                        </h3>
+
+                        <p>
+                            Interactive learning for growth.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mp3-services-list-item">
+
+                        <span class="mp3-service-icon">
+                            ◎
+                        </span>
+
+                        <h3>
+                            Panel Discussions
+                        </h3>
+
+                        <p>
+                            Diverse perspectives and ideas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mp3-services-list-item">
+
+                        <span class="mp3-service-icon">
+                            ⌂
+                        </span>
+
+                        <h3>
+                            Corporate Events
+                        </h3>
+
+                        <p>
+                            Conversations that connect teams.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     SECTION 04 — WHY MPOWER TALK
+     
+     SECTION 03 MIC
+          ↓
+       CENTRE
+          ↓
+      TRAVEL RIGHT
+          ↓
+       STOP
+
+     LEFT:
+     WHY SHOULD CHOOSE MPOWER TALK
+     FLIP WORD ANIMATION
+===================================================== -->
+
+<section
+    class="mp4-final-section"
+    id="why-mpower"
+>
+
+    <div class="mp4-final-track">
+
+        <div class="mp4-final-stage">
+
+
+            <!-- =========================================
+                 LEFT CONTENT
+            ========================================== -->
+
+            <div class="mp4-final-content">
+
+                <div class="mp4-final-kicker">
+                    THE MPOWER DIFFERENCE
+                </div>
+
+
+                <h2 class="mp4-final-heading">
+
+                    <span class="mp4-flip-word">
+                        WHY
+                    </span>
+
+                    <span class="mp4-flip-word">
+                        SHOULD CHOOSE
+                    </span>
+
+                    <span class="mp4-flip-word mp4-brand">
+                        mPOWER TALK
+                    </span>
+
+                </h2>
+
+
+                <div class="mp4-final-divider"></div>
+
+
+                <p class="mp4-final-description">
+                    Meaningful conversations create
+                    meaningful change.
+                </p>
+
+
+                <div class="mp4-final-points">
+
+                    <div class="mp4-final-point">
+
+                        <span>01</span>
+
+                        <strong>
+                            Real Voices
+                        </strong>
+
+                    </div>
+
+
+                    <div class="mp4-final-point">
+
+                        <span>02</span>
+
+                        <strong>
+                            Meaningful Ideas
+                        </strong>
+
+                    </div>
+
+
+                    <div class="mp4-final-point">
+
+                        <span>03</span>
+
+                        <strong>
+                            Lasting Impact
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 RIGHT MIC DESTINATION
+                 
+                 THIS IS ONLY THE VISUAL DESTINATION.
+                 REAL MIC IS CONTROLLED BY JS.
+            ========================================== -->
+
+            <div class="mp4-final-mic-zone">
+
+                <div class="mp4-final-halo halo-1"></div>
+
+                <div class="mp4-final-halo halo-2"></div>
+
+                <div class="mp4-final-ring"></div>
+
+            </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     MPOWER TALK — UPCOMING EVENTS
+     EXPANDING EVENT CARDS
+===================================================== -->
+
+<section class="mp5-events" id="upcoming-events">
+
+    <div class="mp5-events-head">
+
+        <span class="mp5-section-label">
+            WHAT'S COMING
+        </span>
+
+        <h2>
+            UPCOMING
+            <span>EVENTS</span>
+        </h2>
+
+    </div>
+
+
+    <div class="mp5-card-stage" id="mp5CardStage">
+
+
+        <!-- =================================================
+             EVENT 01
+        ================================================== -->
+
+        <article
+            class="mp5-event-card is-active"
+            data-card="0"
+        >
+
+            <div class="mp5-card-image">
+
+                <img
+                    src="assets/workshops/workshop-01.webp"
+                    alt="mPOWER TALK Event"
+                >
+
+            </div>
+
+
+            <div class="mp5-card-shade"></div>
+
+
+            <div class="mp5-event-info">
+
+                <div class="mp5-event-top">
+
+                    <span class="mp5-event-label">
+                        MPOWER TALK · SESSION
+                    </span>
+
+                    <span class="mp5-event-status">
+                        UPCOMING
+                    </span>
+
+                </div>
+
+
+                <div class="mp5-event-main">
+
+                    <div class="mp5-event-date">
+
+                        <strong>28</strong>
+
+                        <span>SEP<br>2026</span>
+
+                    </div>
+
+
+                    <div class="mp5-event-details">
+
+                        <span class="mp5-event-kicker">
+                            THEME
+                        </span>
+
+                        <h3>
+                            THE POWER OF
+                            <em>CONVERSATIONS</em>
+                        </h3>
+
+                        <div class="mp5-event-meta">
+
+                            <span>
+                                <b>TIME</b>
+                                6:00 PM
+                            </span>
+
+                            <span>
+                                <b>PLACE</b>
+                                MYSURU
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mp5-event-bottom">
+
+                    <span>
+                        PEOPLE · IDEAS · PERSPECTIVES
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVENT 02
+        ================================================== -->
+
+        <article
+            class="mp5-event-card"
+            data-card="1"
+        >
+
+            <div class="mp5-card-image">
+
+                <img
+                    src="assets/workshops/workshop-02.webp"
+                    alt="mPOWER TALK Event"
+                >
+
+            </div>
+
+
+            <div class="mp5-card-shade"></div>
+
+
+            <div class="mp5-event-info">
+
+                <div class="mp5-event-top">
+
+                    <span class="mp5-event-label">
+                        MPOWER TALK · FORUM
+                    </span>
+
+                    <span class="mp5-event-status">
+                        UPCOMING
+                    </span>
+
+                </div>
+
+
+                <div class="mp5-event-main">
+
+                    <div class="mp5-event-date">
+
+                        <strong>05</strong>
+
+                        <span>OCT<br>2026</span>
+
+                    </div>
+
+
+                    <div class="mp5-event-details">
+
+                        <span class="mp5-event-kicker">
+                            TOPIC
+                        </span>
+
+                        <h3>
+                            VOICES THAT
+                            <em>MATTER</em>
+                        </h3>
+
+                        <div class="mp5-event-meta">
+
+                            <span>
+                                <b>TIME</b>
+                                5:30 PM
+                            </span>
+
+                            <span>
+                                <b>PLACE</b>
+                                BENGALURU
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mp5-event-bottom">
+
+                    <span>
+                        STORIES · VOICES · CONNECTION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVENT 03
+        ================================================== -->
+
+        <article
+            class="mp5-event-card"
+            data-card="2"
+        >
+
+            <div class="mp5-card-image">
+
+                <img
+                    src="assets/workshops/workshop-03.webp"
+                    alt="mPOWER TALK Event"
+                >
+
+            </div>
+
+
+            <div class="mp5-card-shade"></div>
+
+
+            <div class="mp5-event-info">
+
+                <div class="mp5-event-top">
+
+                    <span class="mp5-event-label">
+                        MPOWER TALK · WORKSHOP
+                    </span>
+
+                    <span class="mp5-event-status">
+                        UPCOMING
+                    </span>
+
+                </div>
+
+
+                <div class="mp5-event-main">
+
+                    <div class="mp5-event-date">
+
+                        <strong>12</strong>
+
+                        <span>OCT<br>2026</span>
+
+                    </div>
+
+
+                    <div class="mp5-event-details">
+
+                        <span class="mp5-event-kicker">
+                            WORKSHOP
+                        </span>
+
+                        <h3>
+                            FROM IDEAS
+                            <em>TO ACTION</em>
+                        </h3>
+
+                        <div class="mp5-event-meta">
+
+                            <span>
+                                <b>TIME</b>
+                                11:00 AM
+                            </span>
+
+                            <span>
+                                <b>PLACE</b>
+                                MYSURU
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mp5-event-bottom">
+
+                    <span>
+                        LEARNING · PARTICIPATION · ACTION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVENT 04
+        ================================================== -->
+
+        <article
+            class="mp5-event-card"
+            data-card="3"
+        >
+
+            <div class="mp5-card-image">
+
+                <img
+                    src="assets/workshops/workshop-04.webp"
+                    alt="mPOWER TALK Event"
+                >
+
+            </div>
+
+
+            <div class="mp5-card-shade"></div>
+
+
+            <div class="mp5-event-info">
+
+                <div class="mp5-event-top">
+
+                    <span class="mp5-event-label">
+                        MPOWER TALK · TALK
+                    </span>
+
+                    <span class="mp5-event-status">
+                        UPCOMING
+                    </span>
+
+                </div>
+
+
+                <div class="mp5-event-main">
+
+                    <div class="mp5-event-date">
+
+                        <strong>19</strong>
+
+                        <span>OCT<br>2026</span>
+
+                    </div>
+
+
+                    <div class="mp5-event-details">
+
+                        <span class="mp5-event-kicker">
+                            CONVERSATION
+                        </span>
+
+                        <h3>
+                            SEEING THINGS
+                            <em>DIFFERENTLY</em>
+                        </h3>
+
+                        <div class="mp5-event-meta">
+
+                            <span>
+                                <b>TIME</b>
+                                4:00 PM
+                            </span>
+
+                            <span>
+                                <b>PLACE</b>
+                                BENGALURU
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mp5-event-bottom">
+
+                    <span>
+                        PERSPECTIVE · LEARNING · INSPIRATION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVENT 05
+        ================================================== -->
+
+        <article
+            class="mp5-event-card"
+            data-card="4"
+        >
+
+            <div class="mp5-card-image">
+
+                <img
+                    src="assets/workshops/workshop-05.webp"
+                    alt="mPOWER TALK Event"
+                >
+
+            </div>
+
+
+            <div class="mp5-card-shade"></div>
+
+
+            <div class="mp5-event-info">
+
+                <div class="mp5-event-top">
+
+                    <span class="mp5-event-label">
+                        MPOWER TALK · COMMUNITY
+                    </span>
+
+                    <span class="mp5-event-status">
+                        UPCOMING
+                    </span>
+
+                </div>
+
+
+                <div class="mp5-event-main">
+
+                    <div class="mp5-event-date">
+
+                        <strong>26</strong>
+
+                        <span>OCT<br>2026</span>
+
+                    </div>
+
+
+                    <div class="mp5-event-details">
+
+                        <span class="mp5-event-kicker">
+                            COMMUNITY
+                        </span>
+
+                        <h3>
+                            THE ROOM
+                            <em>WE SHARE</em>
+                        </h3>
+
+                        <div class="mp5-event-meta">
+
+                            <span>
+                                <b>TIME</b>
+                                6:30 PM
+                            </span>
+
+                            <span>
+                                <b>PLACE</b>
+                                MYSURU
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mp5-event-bottom">
+
+                    <span>
+                        COMMUNITY · QUESTIONS · CHANGE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <div class="mp5-card-hint">
+        <span>CLICK A CARD TO EXPLORE</span>
+        <i></i>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     MPOWER TALK — PAST EVENTS
+     CINEMATIC EVENT CAROUSEL
+===================================================== -->
+
+<section class="mp6-past-events" id="past-events">
+
+    <div class="mp6-past-heading">
+
+        <span class="mp6-past-kicker">
+            OUR JOURNEY
+        </span>
+
+        <h2>
+            PAST <span>EVENTS</span>
+        </h2>
+
+    </div>
+
+
+    <div class="mp6-past-carousel" id="mp6PastCarousel">
+
+
+        <!-- ===============================================
+             EVENT 01
+        ================================================ -->
+
+        <article
+            class="mp6-past-card"
+            data-index="0"
+        >
+
+            <div class="mp6-past-image">
+
+                <img
+                    src="assets/workshops/workshop-01.webp"
+                    alt="mPOWER TALK Past Event"
+                >
+
+            </div>
+
+
+            <div class="mp6-past-overlay"></div>
+
+
+            <div class="mp6-past-info">
+
+                <span class="mp6-past-event-label">
+                    PAST EVENT · 01
+                </span>
+
+                <h3>
+                    CONVERSATIONS
+                </h3>
+
+                <div class="mp6-past-meta">
+
+                    <span>
+                        AUG 2026
+                    </span>
+
+                    <i></i>
+
+                    <span>
+                        MYSURU
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ===============================================
+             EVENT 02
+        ================================================ -->
+
+        <article
+            class="mp6-past-card"
+            data-index="1"
+        >
+
+            <div class="mp6-past-image">
+
+                <img
+                    src="assets/workshops/workshop-02.webp"
+                    alt="mPOWER TALK Past Event"
+                >
+
+            </div>
+
+
+            <div class="mp6-past-overlay"></div>
+
+
+            <div class="mp6-past-info">
+
+                <span class="mp6-past-event-label">
+                    PAST EVENT · 02
+                </span>
+
+                <h3>
+                    VOICES
+                </h3>
+
+                <div class="mp6-past-meta">
+
+                    <span>
+                        JUL 2026
+                    </span>
+
+                    <i></i>
+
+                    <span>
+                        BENGALURU
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ===============================================
+             EVENT 03
+        ================================================ -->
+
+        <article
+            class="mp6-past-card"
+            data-index="2"
+        >
+
+            <div class="mp6-past-image">
+
+                <img
+                    src="assets/workshops/workshop-03.webp"
+                    alt="mPOWER TALK Past Event"
+                >
+
+            </div>
+
+
+            <div class="mp6-past-overlay"></div>
+
+
+            <div class="mp6-past-info">
+
+                <span class="mp6-past-event-label">
+                    PAST EVENT · 03
+                </span>
+
+                <h3>
+                    IDEAS IN ACTION
+                </h3>
+
+                <div class="mp6-past-meta">
+
+                    <span>
+                        JUN 2026
+                    </span>
+
+                    <i></i>
+
+                    <span>
+                        MYSURU
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ===============================================
+             EVENT 04
+        ================================================ -->
+
+        <article
+            class="mp6-past-card"
+            data-index="3"
+        >
+
+            <div class="mp6-past-image">
+
+                <img
+                    src="assets/workshops/workshop-04.webp"
+                    alt="mPOWER TALK Past Event"
+                >
+
+            </div>
+
+
+            <div class="mp6-past-overlay"></div>
+
+
+            <div class="mp6-past-info">
+
+                <span class="mp6-past-event-label">
+                    PAST EVENT · 04
+                </span>
+
+                <h3>
+                    PERSPECTIVES
+                </h3>
+
+                <div class="mp6-past-meta">
+
+                    <span>
+                        MAY 2026
+                    </span>
+
+                    <i></i>
+
+                    <span>
+                        BENGALURU
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ===============================================
+             EVENT 05
+        ================================================ -->
+
+        <article
+            class="mp6-past-card"
+            data-index="4"
+        >
+
+            <div class="mp6-past-image">
+
+                <img
+                    src="assets/workshops/workshop-05.webp"
+                    alt="mPOWER TALK Past Event"
+                >
+
+            </div>
+
+
+            <div class="mp6-past-overlay"></div>
+
+
+            <div class="mp6-past-info">
+
+                <span class="mp6-past-event-label">
+                    PAST EVENT · 05
+                </span>
+
+                <h3>
+                    NEW PERSPECTIVES
+                </h3>
+
+                <div class="mp6-past-meta">
+
+                    <span>
+                        APR 2026
+                    </span>
+
+                    <i></i>
+
+                    <span>
+                        MYSURU
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- DOTS -->
+
+    <div class="mp6-past-dots">
+
+        <button
+            data-slide="0"
+            class="is-active"
+            aria-label="Event 1">
+        </button>
+
+        <button
+            data-slide="1"
+            aria-label="Event 2">
+        </button>
+
+        <button
+            data-slide="2"
+            aria-label="Event 3">
+        </button>
+
+        <button
+            data-slide="3"
+            aria-label="Event 4">
+        </button>
+
+        <button
+            data-slide="4"
+            aria-label="Event 5">
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     MPOWER TALK — UPCOMING PODCAST
+===================================================== -->
+
+<section class="mp7-upcoming-podcast" id="upcoming-podcast">
+
+    <!-- HEADING -->
+
+    <div class="mp7-podcast-heading">
+
+        <span class="mp7-podcast-kicker">
+            WHAT'S NEXT
+        </span>
+
+        <h2>
+            UPCOMING
+            <span>PODCAST</span>
+        </h2>
+
+    </div>
+
+
+    <!-- FREQUENCY VISUAL -->
+
+    <div class="mp7-frequency-visual">
+
+        <div class="mp7-wave mp7-wave-left">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+        </div>
+
+
+        <div class="mp7-tuner">
+
+            <div class="mp7-tuner-inner"></div>
+
+            <div class="mp7-tuner-line"></div>
+
+        </div>
+
+
+        <div class="mp7-wave mp7-wave-right">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+        </div>
+
+    </div>
+
+
+    <!-- PODCAST CAROUSEL -->
+
+    <div class="mp7-podcast-track-wrap">
+
+        <div class="mp7-podcast-track">
+
+
+            <!-- PODCAST 01 -->
+
+            <article class="mp7-podcast-card">
+
+                <div class="mp7-podcast-image">
+
+                    <img
+                        src="assets/workshops/workshop-01.webp"
+                        alt="Upcoming Podcast"
+                    >
+
+                </div>
+
+
+                <div class="mp7-podcast-card-overlay"></div>
+
+
+                <div class="mp7-podcast-details">
+
+                    <span class="mp7-podcast-date">
+                        OCT 12, 2026
+                    </span>
+
+                    <h3>
+                        THE NEXT
+                        <br>
+                        MINDSET
+                    </h3>
+
+                    <div class="mp7-podcast-meta">
+
+                        <span>
+                            06:30 PM
+                        </span>
+
+                        <span class="mp7-meta-dot"></span>
+
+                        <span>
+                            MYSURU
+                        </span>
+
+                    </div>
+
+                    <span class="mp7-podcast-guest">
+                        WITH GUEST NAME
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="mp7-podcast-play"
+                    aria-label="Upcoming podcast"
+                >
+                    <span>▶</span>
+                </button>
+
+            </article>
+
+
+
+            <!-- PODCAST 02 -->
+
+            <article class="mp7-podcast-card">
+
+                <div class="mp7-podcast-image">
+
+                    <img
+                        src="assets/workshops/workshop-02.webp"
+                        alt="Upcoming Podcast"
+                    >
+
+                </div>
+
+
+                <div class="mp7-podcast-card-overlay"></div>
+
+
+                <div class="mp7-podcast-details">
+
+                    <span class="mp7-podcast-date">
+                        OCT 19, 2026
+                    </span>
+
+                    <h3>
+                        PEOPLE &
+                        <br>
+                        POSSIBILITIES
+                    </h3>
+
+                    <div class="mp7-podcast-meta">
+
+                        <span>
+                            07:00 PM
+                        </span>
+
+                        <span class="mp7-meta-dot"></span>
+
+                        <span>
+                            BENGALURU
+                        </span>
+
+                    </div>
+
+                    <span class="mp7-podcast-guest">
+                        WITH GUEST NAME
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="mp7-podcast-play"
+                    aria-label="Upcoming podcast"
+                >
+                    <span>▶</span>
+                </button>
+
+            </article>
+
+
+
+            <!-- PODCAST 03 -->
+
+            <article class="mp7-podcast-card">
+
+                <div class="mp7-podcast-image">
+
+                    <img
+                        src="assets/workshops/workshop-03.webp"
+                        alt="Upcoming Podcast"
+                    >
+
+                </div>
+
+
+                <div class="mp7-podcast-card-overlay"></div>
+
+
+                <div class="mp7-podcast-details">
+
+                    <span class="mp7-podcast-date">
+                        OCT 26, 2026
+                    </span>
+
+                    <h3>
+                        BEYOND
+                        <br>
+                        THE OBVIOUS
+                    </h3>
+
+                    <div class="mp7-podcast-meta">
+
+                        <span>
+                            06:00 PM
+                        </span>
+
+                        <span class="mp7-meta-dot"></span>
+
+                        <span>
+                            MYSURU
+                        </span>
+
+                    </div>
+
+                    <span class="mp7-podcast-guest">
+                        WITH GUEST NAME
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="mp7-podcast-play"
+                    aria-label="Upcoming podcast"
+                >
+                    <span>▶</span>
+                </button>
+
+            </article>
+
+
+
+            <!-- PODCAST 04 -->
+
+            <article class="mp7-podcast-card">
+
+                <div class="mp7-podcast-image">
+
+                    <img
+                        src="assets/workshops/workshop-04.webp"
+                        alt="Upcoming Podcast"
+                    >
+
+                </div>
+
+
+                <div class="mp7-podcast-card-overlay"></div>
+
+
+                <div class="mp7-podcast-details">
+
+                    <span class="mp7-podcast-date">
+                        NOV 02, 2026
+                    </span>
+
+                    <h3>
+                        IDEAS
+                        <br>
+                        IN ACTION
+                    </h3>
+
+                    <div class="mp7-podcast-meta">
+
+                        <span>
+                            07:30 PM
+                        </span>
+
+                        <span class="mp7-meta-dot"></span>
+
+                        <span>
+                            BENGALURU
+                        </span>
+
+                    </div>
+
+                    <span class="mp7-podcast-guest">
+                        WITH GUEST NAME
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="mp7-podcast-play"
+                    aria-label="Upcoming podcast"
+                >
+                    <span>▶</span>
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- MOBILE DOTS -->
+
+    <div class="mp7-podcast-dots">
+
+        <button class="is-active"></button>
+
+        <button></button>
+
+        <button></button>
+
+        <button></button>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     MPOWER TALK — PAST PODCAST
+     INTERACTIVE PODCAST ARCHIVE
+===================================================== -->
+
+<section class="mp8-past-podcast" id="past-podcast">
+
+    <!-- SECTION HEADER -->
+
+    <div class="mp8-past-header">
+
+        <span class="mp8-past-kicker">
+            THE CONVERSATIONS WE'VE HAD
+        </span>
+
+        <h2>
+            PAST
+            <span>PODCAST</span>
+        </h2>
+
+    </div>
+
+
+    <!-- FEATURED PODCAST -->
+
+    <div class="mp8-featured">
+
+        <div class="mp8-featured-image-wrap">
+
+            <div class="mp8-featured-image">
+
+                <img
+                    id="mp8-featured-img"
+                    src="assets/workshops/workshop-01.webp"
+                    alt="Past Podcast"
+                >
+
+            </div>
+
+
+            <!-- DETAILS OVER IMAGE -->
+
+            <div class="mp8-featured-shade"></div>
+
+
+            <div class="mp8-featured-details">
+
+                <span
+                    class="mp8-featured-date"
+                    id="mp8-featured-date"
+                >
+                    OCT 05, 2026
+                </span>
+
+
+                <h3
+                    id="mp8-featured-title"
+                >
+                    THE STORY
+                    <br>
+                    BEHIND THE PERSON
+                </h3>
+
+
+                <div class="mp8-featured-meta">
+
+                    <span id="mp8-featured-guest">
+                        WITH GUEST NAME
+                    </span>
+
+                    <i></i>
+
+                    <span id="mp8-featured-location">
+                        MYSURU
+                    </span>
+
+                    <i></i>
+
+                    <span id="mp8-featured-duration">
+                        42 MIN
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="mp8-featured-description"
+                >
+                    A conversation about people,
+                    ideas, experiences and the stories
+                    that shape the way we think.
+                </p>
+
+
+                <button
+                    class="mp8-listen-btn"
+                    type="button"
+                >
+
+                    <span class="mp8-listen-icon">
+                        ▶
+                    </span>
+
+                    LISTEN NOW
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- THUMBNAILS -->
+
+    <div class="mp8-thumbnails-wrap">
+
+        <div class="mp8-thumbnails">
+
+
+            <!-- THUMBNAIL 1 -->
+
+            <button
+                class="mp8-thumb is-active"
+                type="button"
+
+                data-image="assets/workshops/workshop-01.webp"
+
+                data-date="OCT 05, 2026"
+
+                data-title="THE STORY|BEHIND THE PERSON"
+
+                data-guest="WITH GUEST NAME"
+
+                data-location="MYSURU"
+
+                data-duration="42 MIN"
+
+                data-description="A conversation about people, ideas, experiences and the stories that shape the way we think."
+            >
+
+                <img
+                    src="assets/workshops/workshop-01.webp"
+                    alt="Past Podcast"
+                >
+
+            </button>
+
+
+            <!-- THUMBNAIL 2 -->
+
+            <button
+                class="mp8-thumb"
+                type="button"
+
+                data-image="assets/workshops/workshop-02.webp"
+
+                data-date="SEP 21, 2026"
+
+                data-title="PEOPLE|WHO INSPIRE"
+
+                data-guest="WITH GUEST NAME"
+
+                data-location="BENGALURU"
+
+                data-duration="38 MIN"
+
+                data-description="An honest conversation about ambition, growth, challenges and the people who inspire us to move forward."
+            >
+
+                <img
+                    src="assets/workshops/workshop-02.webp"
+                    alt="Past Podcast"
+                >
+
+            </button>
+
+
+            <!-- THUMBNAIL 3 -->
+
+            <button
+                class="mp8-thumb"
+                type="button"
+
+                data-image="assets/workshops/workshop-03.webp"
+
+                data-date="SEP 08, 2026"
+
+                data-title="BEYOND|THE OBVIOUS"
+
+                data-guest="WITH GUEST NAME"
+
+                data-location="MYSURU"
+
+                data-duration="46 MIN"
+
+                data-description="Looking beyond the obvious to explore ideas, choices and experiences that create meaningful change."
+            >
+
+                <img
+                    src="assets/workshops/workshop-03.webp"
+                    alt="Past Podcast"
+                >
+
+            </button>
+
+
+            <!-- THUMBNAIL 4 -->
+
+            <button
+                class="mp8-thumb"
+                type="button"
+
+                data-image="assets/workshops/workshop-04.webp"
+
+                data-date="AUG 26, 2026"
+
+                data-title="IDEAS|IN ACTION"
+
+                data-guest="WITH GUEST NAME"
+
+                data-location="BENGALURU"
+
+                data-duration="41 MIN"
+
+                data-description="A conversation on turning ideas into action and creating meaningful impact through everyday work."
+            >
+
+                <img
+                    src="assets/workshops/workshop-04.webp"
+                    alt="Past Podcast"
+                >
+
+            </button>
+
+
+            <!-- THUMBNAIL 5 -->
+
+            <button
+                class="mp8-thumb"
+                type="button"
+
+                data-image="assets/workshops/workshop-05.webp"
+
+                data-date="AUG 12, 2026"
+
+                data-title="THE POWER|OF CONVERSATION"
+
+                data-guest="WITH GUEST NAME"
+
+                data-location="MYSURU"
+
+                data-duration="35 MIN"
+
+                data-description="Exploring how meaningful conversations can change perspectives, build connections and create new possibilities."
+            >
+
+                <img
+                    src="assets/workshops/workshop-05.webp"
+                    alt="Past Podcast"
+                >
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- SMALL INSTRUCTION -->
+
+    <div class="mp8-past-hint">
+
+        <span></span>
+
+        SELECT A CONVERSATION TO EXPLORE
+
+        <span></span>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     TESTIMONIALS
+========================= -->
+
+<section class="mp9-testimonials" id="testimonials">
+
+    <div class="mp9-heading">
+        <span>TESTIMONIALS</span>
+    </div>
+
+    <div class="mp9-testimonial-stage">
+
+        <!-- PAGE 1 -->
+        <article class="mp9-page is-active">
+
+            <div class="mp9-pin">
+                <span></span>
+            </div>
+
+            <div class="mp9-page-content">
+
+                <div class="mp9-quote-mark">“</div>
+
+                <p class="mp9-quote">
+                    mPOWER TALK gave me a fresh perspective on
+                    leadership, people and the power of meaningful
+                    conversations.
+                </p>
+
+                <div class="mp9-divider"></div>
+
+                <div class="mp9-person">
+
+                    <div class="mp9-person-photo">
+                        <img src="assets/images/testimonial-01.jpg"
+                             alt="Testimonial">
+                    </div>
+
+                    <div class="mp9-person-info">
+                        <h3>Sahana R</h3>
+                        <span>Product Manager</span>
+                        <small>Zoho</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PAGE 2 -->
+        <article class="mp9-page">
+
+            <div class="mp9-pin">
+                <span></span>
+            </div>
+
+            <div class="mp9-page-content">
+
+                <div class="mp9-quote-mark">“</div>
+
+                <p class="mp9-quote">
+                    A simple conversation can sometimes change
+                    the way we look at people, ideas and ourselves.
+                </p>
+
+                <div class="mp9-divider"></div>
+
+                <div class="mp9-person">
+
+                    <div class="mp9-person-photo">
+                        <img src="assets/images/testimonial-02.jpg"
+                             alt="Testimonial">
+                    </div>
+
+                    <div class="mp9-person-info">
+                        <h3>Rahul K</h3>
+                        <span>Business Leader</span>
+                        <small>Mysuru</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PAGE 3 -->
+        <article class="mp9-page">
+
+            <div class="mp9-pin">
+                <span></span>
+            </div>
+
+            <div class="mp9-page-content">
+
+                <div class="mp9-quote-mark">“</div>
+
+                <p class="mp9-quote">
+                    The conversations were thoughtful, honest
+                    and something that stayed with me long after
+                    the session ended.
+                </p>
+
+                <div class="mp9-divider"></div>
+
+                <div class="mp9-person">
+
+                    <div class="mp9-person-photo">
+                        <img src="assets/images/testimonial-03.jpg"
+                             alt="Testimonial">
+                    </div>
+
+                    <div class="mp9-person-info">
+                        <h3>Priya S</h3>
+                        <span>Founder</span>
+                        <small>Bengaluru</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PAGE 4 -->
+        <article class="mp9-page">
+
+            <div class="mp9-pin">
+                <span></span>
+            </div>
+
+            <div class="mp9-page-content">
+
+                <div class="mp9-quote-mark">“</div>
+
+                <p class="mp9-quote">
+                    mPOWER TALK creates a space where people
+                    can pause, listen and discover a different
+                    perspective.
+                </p>
+
+                <div class="mp9-divider"></div>
+
+                <div class="mp9-person">
+
+                    <div class="mp9-person-photo">
+                        <img src="assets/images/testimonial-04.jpg"
+                             alt="Testimonial">
+                    </div>
+
+                    <div class="mp9-person-info">
+                        <h3>Arjun M</h3>
+                        <span>Entrepreneur</span>
+                        <small>India</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <button class="mp9-arrow mp9-prev" type="button" aria-label="Previous testimonial">
+        ←
+    </button>
+
+    <button class="mp9-arrow mp9-next" type="button" aria-label="Next testimonial">
+        →
+    </button>
+
+
+</section>
+
+<!-- =====================================================
+     MPOWER TALK — OUR CLIENT COMPANIES
+===================================================== -->
+
+<section class="mp10-clients" id="client-companies">
+
+    <div class="mp10-clients-head">
+
+        <span class="mp10-kicker">
+            TRUSTED BY
+        </span>
+
+        <h2>
+            OUR CLIENT
+            <span>COMPANIES</span>
+        </h2>
+
+    </div>
+
+
+    <!-- ROW 1 -->
+
+    <div class="mp10-marquee">
+
+        <div class="mp10-marquee-track">
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ROW 2 -->
+
+    <div class="mp10-marquee mp10-marquee-second">
+
+        <div class="mp10-marquee-track">
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+            <div class="mp10-company">COMPANY NAME</div>
+            <div class="mp10-dot">✦</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     MP11 — FINAL CTA
+========================= -->
+<section class="mp11-cta" id="contact">
+
+  <div class="mp11-orbit mp11-orbit-top">
+    <span></span>
+  </div>
+
+  <div class="mp11-cta-inner">
+
+    <div class="mp11-kicker">
+      ONE MORE CONVERSATION
+    </div>
+
+    <h2 class="mp11-title">
+      <span>Let's</span>
+      <span>Talk<b>.</b></span>
+    </h2>
+
+    <p class="mp11-description">
+      Have an idea, event or story<br class="mp11-desktop-break">
+      worth sharing?
+    </p>
+
+    <div class="mp11-actions">
+
+      <!-- Replace XXXXXXXXXX with actual WhatsApp number -->
+      <a
+        href="https://wa.me/919886756745"
+        class="mp11-btn mp11-btn-whatsapp"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="mp11-btn-icon">◔</span>
+        <span>WHATSAPP US</span>
+        <strong>→</strong>
+      </a>
+
+      <!-- Replace email with client's actual email -->
+      <a
+        href="mailto:hello@mpowertalk.com"
+        class="mp11-btn mp11-btn-email"
+      >
+        <span class="mp11-btn-icon">✉</span>
+        <span>SEND AN EMAIL</span>
+        <strong>→</strong>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="mp11-orbit mp11-orbit-bottom">
+    <span></span>
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER — MPOWER TALK
+===================================================== -->
+
+<footer class="mp12-footer" id="contact-footer">
+
+  <div class="mp12-footer-main">
+
+    <!-- LOGO -->
+    <div class="mp12-brand">
+
+      <div class="mp12-logo">
+        <span class="mp12-logo-m">m</span><span>POWER</span>
+        <strong>TALK</strong>
+      </div>
+
+    </div>
+
+
+    <!-- EXPLORE -->
+    <div class="mp12-column">
+
+      <span class="mp12-column-title">EXPLORE</span>
+
+      <div class="mp12-line"></div>
+
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#events">Events</a>
+      <a href="#client-companies">Community</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <!-- CONNECT -->
+    <div class="mp12-column">
+
+      <span class="mp12-column-title">CONNECT</span>
+
+      <div class="mp12-line"></div>
+
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">YouTube</a>
+      <a href="#" target="_blank">Spotify</a>
+
+    </div>
+
+
+    <!-- CONTACT BUTTONS -->
+    <div class="mp12-contact">
+
+      <span class="mp12-column-title">CONTACT</span>
+
+      <div class="mp12-line"></div>
+
+      <div class="mp12-contact-buttons">
+
+        <!-- Replace WhatsApp number -->
+        <a
+          href="https://wa.me/91XXXXXXXXXX"
+          class="mp12-contact-btn mp12-whatsapp"
+          target="_blank"
+          rel="noopener"
+          aria-label="WhatsApp"
+        >
+          <span>◔</span>
+        </a>
+
+        <!-- Replace email -->
+        <a
+          href="mailto:hello@mpowertalk.com"
+          class="mp12-contact-btn mp12-email"
+          aria-label="Email"
+        >
+          <span>✉</span>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PODCAST IMAGE -->
+    <div class="mp12-image-wrap">
+
+      <img
+        src="assets/images/footer-podcast.png"
+        alt="mPOWER TALK podcast conversation"
+        class="mp12-footer-image"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- BOTTOM -->
+  <div class="mp12-footer-bottom">
+
+    <span>
+      © 2026 mPOWER TALK. ALL RIGHTS RESERVED.
+    </span>
+
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
