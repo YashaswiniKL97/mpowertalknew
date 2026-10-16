@@ -2396,7 +2396,7 @@ body.site-ready .nav-actions {
         "DM Mono",
         monospace;
 
-    font-size: 10px;
+    font-size: 16px;
 
     line-height: 1;
 
@@ -2562,7 +2562,7 @@ body.site-ready .nav-actions {
         "Syne",
         sans-serif;
 
-    font-size: 23px;
+    font-size: 30px;
 
     font-weight: 600;
 
@@ -2583,7 +2583,7 @@ body.site-ready .nav-actions {
         "DM Mono",
         monospace;
 
-    font-size: 8px;
+    font-size: 15px;
 
     line-height: 1.2;
 
@@ -2622,7 +2622,7 @@ body.site-ready .nav-actions {
         "Syne",
         sans-serif;
 
-    font-size: 14px;
+    font-size: 16px;
 
     line-height: 1.6;
 
@@ -2738,12 +2738,13 @@ body.site-ready .nav-actions {
     }
 
 
-    .mp-founder-eyebrow {
-        font-size: 9px;
-
-        margin-bottom: 24px;
-    }
-
+   
+.mp-founder-eyebrow {
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: 3.5px;
+    margin-bottom: 24px;
+}
 
     .mp-founder-title {
         height: 225px;
@@ -2772,16 +2773,27 @@ body.site-ready .nav-actions {
     }
 
 
-    .mp-founder-name {
-        font-size: 20px;
-    }
+  
+/* TABLET — FOUNDER NAME */
+.mp-founder-name {
+    font-size: 23px;
+    line-height: 1.2;
+}
 
+/* TABLET — FOUNDER ROLE */
+.mp-founder-role {
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 1.5px;
+}
 
-    .mp-founder-story-copy p {
-        font-size: 11px;
+/* TABLET — FOUNDER DESCRIPTION */
+.mp-founder-story-copy p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
 
-        line-height: 1.6;
-    }
 
 
     .mp-founder-image-wrap {
@@ -2937,7 +2949,7 @@ body.site-ready .nav-actions {
 
         padding-bottom: 7px;
 
-        font-size: 7px;
+        font-size: 12px;
 
         line-height: 1;
 
@@ -3022,80 +3034,42 @@ body.site-ready .nav-actions {
        NAME
     ===================================================== */
 
-   .mp-founder-name {
+   
+/* MOBILE — FOUNDER NAME */
+.mp-founder-name {
     width: 94%;
-
-    margin: 0 auto 5px;
-
+    margin: 0 auto 6px;
     padding-left: 0;
-
-    font-size: 18px;
-
-    line-height: 1.15;
-
+    font-size: 20px;
+    line-height: 1.25;
     text-align: left;
 }
 
-
-    /* =====================================================
-       ROLE
-    ===================================================== */
-
-   .mp-founder-role {
+/* MOBILE — FOUNDER ROLE */
+.mp-founder-role {
     width: 94%;
-
-    margin: 0 auto 20px;
-
+    margin: 0 auto 18px;
     padding-left: 0;
-
-    font-size: 6.5px;
-
+    font-size: 8px;
+    line-height: 1.5;
     letter-spacing: 1.4px;
-
     text-align: left;
-
     white-space: nowrap;
 }
 
-
-    /* =====================================================
-       DESCRIPTION
-    ===================================================== */
-
-    /* =====================================================
-   DESCRIPTION
-   MOVED UP + SLIGHTLY LARGER
-===================================================== */
-
-.mp-founder-story-copy {
-    width: 94%;
-
-    max-width: 480px;
-
-    margin: -8px auto 0;
-
-    padding: 0;
-
-    border: none;
-
-    text-align: left;
-}
-
-
+/* MOBILE — FOUNDER DESCRIPTION */
 .mp-founder-story-copy p {
     width: 100%;
-
-    margin: 0 0 9px;
-
-    font-size: 12px;
-
-    line-height: 1.55;
-
+    margin: 0 0 11px;
+    font-size: 16px;
+    line-height: 1.65;
     text-align: left;
-
     color: #55574e;
 }
 
+.mp-founder-story-copy p:last-child {
+    margin-bottom: 0;
+}
 
 .mp-founder-story-copy p:last-child {
     margin-bottom: 0;
@@ -3123,7 +3097,7 @@ body.site-ready .nav-actions {
 
     font-size:
         clamp(
-            35px,
+            40px,
             10.8vw,
             44px
         );
@@ -3147,39 +3121,35 @@ body.site-ready .nav-actions {
     }
 
 
-   .mp-founder-name {
+   
+/* SMALL MOBILE — FOUNDER NAME */
+.mp-founder-name {
     width: 95%;
+    margin: 0 auto 6px;
+    font-size: 18px;
+    line-height: 1.25;
+    padding-left: 0;
+}
 
-    margin: 0 auto 5px;
+/* SMALL MOBILE — FOUNDER ROLE */
+.mp-founder-role {
+    width: 95%;
+    margin: 0 auto 18px;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    padding-left: 0;
+}
 
+/* SMALL MOBILE — FOUNDER DESCRIPTION */
+.mp-founder-story-copy {
+    width: 95%;
+}
+
+.mp-founder-story-copy p {
     font-size: 16px;
-
-    padding-left: 0;
-}
-
-
-  .mp-founder-role {
-    width: 95%;
-
-    margin: 0 auto 20px;
-
-    font-size: 6px;
-
-    letter-spacing: 1.1px;
-
-    padding-left: 0;
-}
-
-
-    .mp-founder-story-copy {
-        width: 95%;
-    }
-
-
-    .mp-founder-story-copy p {
-    font-size: 11px;
-
-    line-height: 1.52;
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
 }
@@ -3430,14 +3400,15 @@ body.site-ready .nav-actions {
     object-fit: cover;
 }
 
+
 #voiceStory .voice-card-label {
     display: block;
-    margin-bottom: 8px;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #e46b4f;
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 1.3;
+    letter-spacing: 1.1px;
 }
+
 
 #voiceStory .voice-card-copy h3 {
     margin: 0;
@@ -3659,11 +3630,12 @@ body.site-ready .nav-actions {
     
 /* MOBILE — LEFT INTRO ONLY */
 
+
 #voiceStory .voice-belief {
     position: absolute;
     left: 6%;
     right: auto;
-    top: 10%;
+    top: calc(10% + 28px);
 
     width: 100%;
     max-width: 250px;
@@ -3671,18 +3643,18 @@ body.site-ready .nav-actions {
     padding: 0;
 
     text-align: left;
-    z-index: 20;
+    z-index: 30;
 }
+
+
 
 #voiceStory .voice-belief-kicker {
-    display: block;
-    margin: 0 0 12px;
-
-    font-size: 9px;
-    line-height: 1.4;
-    letter-spacing: 1.5px;
-    text-align: left;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 3px !important;
+    font-weight: 600 !important;
 }
+
 
 #voiceStory .voice-belief-kicker::after {
     content: "";
@@ -3818,7 +3790,7 @@ body.site-ready .nav-actions {
 #voiceStory .voice-about-inner {
     position: absolute;
     top: 46%;
-    right: 0%;
+    right: 4%;
     width: 62%;
     max-width: none;
     min-width: 0;
@@ -3826,30 +3798,36 @@ body.site-ready .nav-actions {
     overflow-wrap: normal;
 }
 
+
 #voiceStory .voice-about-label {
-    margin-bottom: 9px;
-    font-size: 10px;
-    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
 }
+
 
 #voiceStory .voice-about-label::after {
     width: 35px;
     margin-top: 6px;
 }
 
+
 #voiceStory .voice-about h2 {
-    font-size: clamp(42px, 9vw, 42px);
-    line-height: .98;
-    letter-spacing: -.8px;
+    font-size: clamp(48px, 10.5vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -1.2px;
     overflow-wrap: normal;
     word-break: normal;
 }
 
+
 #voiceStory .voice-about p {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.5;
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.55;
 }
+
 
 #voiceStory .voice-about-meta {
     margin-top: 8px;
@@ -3890,13 +3868,23 @@ body.site-ready .nav-actions {
     height: 35%;
 }
 
-   #voiceStory .voice-about-inner {
-    width: 70%;
+#voiceStory .voice-about-inner {
+    top: 42%;
+    right: 2%;
+    width: 76%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 #voiceStory .voice-about h2 {
-    font-size: 60px;
+    font-size: clamp(38px, 10vw, 46px);
+    line-height: 1;
+    letter-spacing: -0.8px;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -5286,11 +5274,15 @@ body.site-ready .nav-actions {
 #programs
 .mp3-final-kicker {
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    font-size: 8px;
+    font-size: 11px;
 
-    letter-spacing: 2.2px;
+    font-weight: 500;
+
+    letter-spacing: 2.4px;
+
+    line-height: 1.4;
 }
 
 #programs
@@ -5830,37 +5822,38 @@ body.site-ready .nav-actions {
    DESCRIPTION
 ========================================================= */
 
-#why-mpower .mp4-final-description {
-
-    max-width: 500px;
-
-    margin: 0;
-
-    font-family:
-        "Syne",
-        sans-serif;
-
-    font-size:
-        clamp(
-            17px,
-            1.5vw,
-            22px
-        );
-
-    line-height: 1.5;
-
-    color:
-        rgba(
-            24,
-            61,
-            41,
-            .68
-        );
-
+#why-mpower .mp4-final-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
     opacity: 0;
+    transform: translateY(22px);
+}
 
-    transform:
-        translateY(22px);
+#why-mpower .mp4-final-point {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-height: 54px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(24, 61, 41, .14);
+}
+
+#why-mpower .mp4-final-point span {
+    flex-shrink: 0;
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #d76545;
+}
+
+#why-mpower .mp4-final-point strong {
+    font-family: "Syne", sans-serif;
+    font-size: clamp(17px, 1.35vw, 20px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: #183d29;
 }
 
 
@@ -6243,6 +6236,32 @@ and
 
 }
 
+@media (min-width: 701px) and (max-width: 1100px) {
+
+    #why-mpower .mp4-final-description {
+        font-size: 19px;
+        line-height: 1.55;
+    }
+
+    #why-mpower .mp4-final-points {
+        gap: 13px;
+        margin-top: 25px;
+    }
+
+    #why-mpower .mp4-final-point {
+        gap: 16px;
+        min-height: 48px;
+        padding-bottom: 11px;
+    }
+
+    #why-mpower .mp4-final-point span {
+        font-size: 11px;
+    }
+
+    #why-mpower .mp4-final-point strong {
+        font-size: 17px;
+    }
+}
 
 /* =========================================================
    MOBILE
@@ -6313,42 +6332,36 @@ and
     }
 
 
-    #why-mpower .mp4-final-description {
-
-        font-size: 9px;
-
-        line-height: 1.5;
-    }
-
-
-    #why-mpower .mp4-final-points {
-
-        gap: 8px;
-
-        margin-top: 17px;
-    }
+   #why-mpower .mp4-final-description {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
+}
 
 
-    #why-mpower .mp4-final-point {
-
-        gap: 8px;
-
-        min-height: 30px;
-
-        padding-bottom: 7px;
-    }
+ #why-mpower .mp4-final-points {
+    gap: 12px;
+    margin-top: 22px;
+}
 
 
-    #why-mpower .mp4-final-point span {
 
-        font-size: 8px;
-    }
+#why-mpower .mp4-final-point {
+    gap: 10px;
+    min-height: 42px;
+    padding-bottom: 10px;
+}
 
 
-    #why-mpower .mp4-final-point strong {
+#why-mpower .mp4-final-point span {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
 
-        font-size: 9px;
-    }
+#why-mpower .mp4-final-point strong {
+    font-size: 16px;
+    line-height: 1.4;
+}
 
 
     #why-mpower .mp4-final-mic-zone {
@@ -9301,3 +9314,416 @@ and
     }
 
 }
+
+/* =========================================================
+   MPOWERTALK — MOBILE MIC ORBIT
+   One card above, two beside, one below
+========================================================= */
+
+@media (max-width: 700px) {
+    #voiceStory .voice-story-inner {
+        position: sticky;
+        top: 0;
+        height: 100svh;
+        min-height: 0;
+        max-height: 100svh;
+        overflow: hidden;
+    }
+
+    /* MIC stays on the LEFT */
+    #voiceStory .voice-mic-stage {
+        left: 1%;
+        top: 57%;
+        width: 44%;
+        height: 43%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    #voiceStory .voice-mic-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Full section becomes the card positioning area */
+    #voiceStory .voice-beliefs-list {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+        z-index: 20;
+        pointer-events: none;
+    }
+
+    #voiceStory .voice-belief-card {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 9px;
+    width: 58%;
+    min-height: 48px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+    #voiceStory .voice-belief-card::before {
+        display: none;
+    }
+
+   #voiceStory .voice-card-media {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+    #voiceStory .voice-card-media img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    #voiceStory .voice-card-label {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 8px;
+        line-height: 1.2;
+        letter-spacing: .8px;
+    }
+
+
+#voiceStory .voice-card-copy h3 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
+
+    #voiceStory .voice-card-copy p {
+        margin-top: 3px;
+        font-size: 8px;
+        line-height: 1.3;
+    }
+
+    /* 1 — ABOVE MIC */
+    #voiceStory .voice-belief-card:nth-child(1) {
+        top: 23%;
+        left: 12%;
+        width: 62%;
+    }
+
+    /* 2 — RIGHT UPPER SIDE */
+    #voiceStory .voice-belief-card:nth-child(2) {
+        top: 43%;
+        left: 40%;
+        width: 58%;
+    }
+
+    /* 3 — RIGHT LOWER SIDE */
+    #voiceStory .voice-belief-card:nth-child(3) {
+        top: 61%;
+        left: 40%;
+        width: 58%;
+    }
+
+    /* 4 — BELOW MIC */
+    #voiceStory .voice-belief-card:nth-child(4) {
+        top: 78%;
+        left: 12%;
+        width: 62%;
+    }
+}
+
+@media (max-width: 390px) {
+    #voiceStory .voice-mic-stage {
+        left: 0;
+        width: 43%;
+        height: 40%;
+    }
+
+    #voiceStory .voice-belief-card {
+        grid-template-columns: 26px minmax(0, 1fr);
+        gap: 6px;
+    }
+
+  #voiceStory .voice-card-media {
+    width: 34px;
+    height: 34px;
+}
+
+
+#voiceStory .voice-belief-card {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 8px;
+}
+
+#voiceStory .voice-card-media {
+    width: 40px;
+    height: 40px;
+}
+
+#voiceStory .voice-card-label {
+    font-size: 10px;
+}
+
+#voiceStory .voice-card-copy h3 {
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+}
+
+/* =========================================================
+   MPOWERTALK — MOBILE VOICE STORY SEQUENCE
+   1. Heading LEFT, mic RIGHT
+   2. Mic travels LEFT-DOWN
+   3. Heading fades out
+   4. Four cards appear
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #voiceStory.voice-story {
+        height: 1000px !important;
+        min-height: 1000px !important;
+        max-height: none !important;
+        width: 100%;
+        overflow: visible;
+    }
+
+    #voiceStory .voice-story-inner {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100svh;
+        min-height: 0;
+        max-height: 100svh;
+        overflow: hidden;
+    }
+
+    /* HEADING — starts on the LEFT */
+    #voiceStory .voice-belief {
+        position: absolute;
+        left: 6%;
+        right: auto;
+        top: 19%;
+        width: 55%;
+        max-width: 270px;
+        margin: 0;
+        padding: 0;
+        z-index: 30;
+        text-align: left;
+        opacity: 0;
+        will-change: opacity, transform;
+    }
+
+    #voiceStory .voice-belief-kicker {
+        margin-bottom: 14px;
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+        letter-spacing: 2.5px !important;
+    }
+
+    #voiceStory .voice-belief-kicker::after {
+        width: 28px;
+        height: 4px;
+        margin-top: 8px;
+    }
+
+    #voiceStory .voice-belief h2 {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(32px, 8.5vw, 42px);
+        line-height: 1.02;
+        letter-spacing: -1.3px;
+    }
+
+    #voiceStory .voice-belief h2 span {
+        display: inline;
+        color: #d76545;
+    }
+
+    /* MIC — starts on the RIGHT */
+   #voiceStory .voice-mic-stage {
+    position: absolute;
+    left: 45%;
+    right: auto;
+    top: 35%;
+    width: 42%;
+    height: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transform: translateY(-50%);
+    pointer-events: none;
+    will-change: transform;
+}
+
+    #voiceStory .voice-mic-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        will-change: opacity;
+    }
+
+    /* FOUR CARDS — hidden until the mic travels */
+    #voiceStory .voice-beliefs-list {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+        z-index: 20;
+        pointer-events: none;
+    }
+
+   
+#voiceStory .voice-belief-card {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    width: 66%;
+    min-height: 62px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+
+    #voiceStory .voice-belief-card::before {
+        display: none;
+    }
+
+   
+#voiceStory .voice-card-media {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+
+    #voiceStory .voice-card-media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #voiceStory .voice-card-label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 10px;
+        line-height: 1.3;
+        letter-spacing: 1px;
+    }
+
+    #voiceStory .voice-card-copy h3 {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.35;
+        overflow-wrap: break-word;
+    }
+
+    #voiceStory .voice-card-copy p {
+        margin-top: 4px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    /* CARD 1 — upper left */
+    #voiceStory .voice-belief-card:nth-child(1) {
+        top: 38%;
+        left: 5%;
+        width: 62%;
+    }
+
+    /* CARD 2 — upper right */
+    #voiceStory .voice-belief-card:nth-child(2) {
+        top: 49%;
+        left: 40%;
+        width: 58%;
+    }
+
+    /* CARD 3 — lower right */
+    #voiceStory .voice-belief-card:nth-child(3) {
+        top: 64%;
+        left: 40%;
+        width: 58%;
+    }
+
+    /* CARD 4 — bottom left */
+    #voiceStory .voice-belief-card:nth-child(4) {
+        top: 79%;
+        left: 5%;
+        width: 66%;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 390px) {
+
+    #voiceStory .voice-belief {
+        width: 54%;
+    }
+
+    #voiceStory .voice-belief h2 {
+        font-size: clamp(30px, 8.2vw, 35px);
+    }
+
+    #voiceStory .voice-mic-stage {
+        left: 54%;
+        width: 42%;
+        height: 43%;
+    }
+
+    #voiceStory .voice-belief-card {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 8px;
+        min-height: 48px;
+    }
+
+    #voiceStory .voice-card-media {
+        width: 38px;
+        height: 38px;
+    }
+
+    #voiceStory .voice-card-label {
+        font-size: 10px;
+    }
+
+    #voiceStory .voice-card-copy h3 {
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    #voiceStory .voice-card-copy p {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+}
+

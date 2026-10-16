@@ -234,105 +234,58 @@ document.addEventListener(
     }
 );
 
+
 /* =========================================================
    MPOWERTALK — FOUNDER
-   CLEAN SCROLL REVEAL
+   FADE IN WHEN SECTION ENTERS VIEW
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const founder =
-        document.querySelector(".mp-founder-story");
+    const founder = document.querySelector(".mp-founder-story");
 
     if (!founder) return;
 
+    /* Fade in only when founder section enters the screen */
+    const founderObserver = new IntersectionObserver(
+        (entries) => {
 
-    /* -----------------------------------------
-       REVEAL
-    ----------------------------------------- */
+            entries.forEach((entry) => {
 
-    const revealFounder = () => {
+                if (entry.isIntersecting) {
 
-        founder.classList.add("is-visible");
+                    founder.classList.add("is-visible");
 
-    };
-
-
-    /* -----------------------------------------
-       WAIT FOR OPENING LOADER
-    ----------------------------------------- */
-
-    if (
-        document.body.classList.contains("site-ready")
-    ) {
-
-        revealFounder();
-
-    } else {
-
-        const observer =
-            new MutationObserver(() => {
-
-                if (
-                    document.body.classList.contains(
-                        "site-ready"
-                    )
-                ) {
-
-                    observer.disconnect();
-
-                    revealFounder();
+                    /* Run only once */
+                    founderObserver.unobserve(founder);
                 }
 
             });
 
+        },
+        {
+            threshold: 0.15
+        }
+    );
 
-        observer.observe(
-            document.body,
-            {
-                attributes: true,
-                attributeFilter: ["class"]
-            }
-        );
+    founderObserver.observe(founder);
 
-    }
-
-
-    /* -----------------------------------------
-       IMAGE HOVER
-    ----------------------------------------- */
-
-    const image =
-        founder.querySelector(
-            ".mp-founder-image img"
-        );
+    /* Preserve existing image hover effect */
+    const image = founder.querySelector(".mp-founder-image img");
 
     if (image) {
 
-        image.addEventListener(
-            "mouseenter",
-            () => {
+        image.addEventListener("mouseenter", () => {
+            image.style.transform = "scale(1.015)";
+        });
 
-                image.style.transform =
-                    "scale(1.015)";
-
-            }
-        );
-
-        image.addEventListener(
-            "mouseleave",
-            () => {
-
-                image.style.transform =
-                    "scale(1)";
-
-            }
-        );
+        image.addEventListener("mouseleave", () => {
+            image.style.transform = "scale(1)";
+        });
 
     }
 
 });
-
 
 /* =====================================================
    SECTION 02 — RESPONSIVE MIC STORY
@@ -408,43 +361,59 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        /* MOBILE: keep the heading visible in its original position */
+        
 
-belief.style.opacity = 1;
-belief.style.transform = "none";
 
-        /* Move mic left and down, keeping it visible */
+/* MOBILE: heading LEFT + mic RIGHT → mic travels LEFT-DOWN → cards */
 
-   /* Move mic left and slightly down */
+const introProgress = ease(p / 0.10);
 
-const micMove = ease((p - 0.08) / 0.43);
+/* STAGE 1 — Heading fades in, then fades out */
+const beliefFadeOut = 1 - ease((p - 0.30) / 0.13);
 
-mic.style.opacity = 1;
+belief.style.opacity = introProgress * beliefFadeOut;
+belief.style.transform =
+    `translateY(${16 * (1 - introProgress)}px)`;
+
+/* STAGE 2 — Mic fades in on RIGHT, then travels LEFT-DOWN */
+const micTravel = ease((p - 0.12) / 0.35);
+
+mic.style.opacity = introProgress;
 mic.style.transform = "none";
 
 micStage.style.transform =
-    `translate3d(${-55 * micMove}vw,
-                 ${27 * micMove}vh, 0)
-     translateY(-50%)`;
+    `translate3d(${-48 * micTravel}vw, ${23 * micTravel}vh, 0) translateY(-50%)`;
 
-        /* Cards appear and disappear in reverse scroll */
+/* STAGE 3 — FOUR CARDS APPEAR ONE BY ONE, MORE SLOWLY */
+
+/* Keep all four cards visible until the sequence finishes */
+const cardsFadeOut = 1 - ease((p - 0.91) / 0.03);
 
 cards.forEach((card, i) => {
-    const start = 0.53 + i * 0.07;
-    const show = ease((p - start) / 0.13);
-    const fade = 1 - ease((p - 0.88) / 0.08);
 
-    card.style.opacity = show * fade;
+    /* Larger gap between each card's starting time */
+    const cardStart = 0.48 + i * 0.09;
+
+    /* Smooth, slower reveal */
+    const show = ease((p - cardStart) / 0.14);
+
+    const cardOpacity = show * cardsFadeOut;
+
+    card.style.opacity = cardOpacity;
+
     card.style.transform =
-        `translateY(${10 * (1 - show)}px)`;
+        `translateY(${14 * (1 - show) + 8 * (1 - cardsFadeOut)}px)`;
+
     card.style.pointerEvents = "none";
 });
 
-/* About appears after cards and disappears on reverse scroll */
 
-const aboutProgress = ease((p - 0.96) / 0.04);
+/* STAGE 4 — ABOUT APPEARS AFTER THE CARDS */
+/* Pause after the cards before revealing About */
+const aboutProgress = ease((p - 0.985) / 0.015);
 
 about.style.opacity = aboutProgress;
+
 about.style.pointerEvents =
     aboutProgress > 0.9 ? "auto" : "none";
 
@@ -820,33 +789,23 @@ function getIntroMicRect() {
 
     function getCenterMicRect() {
 
-        const size =
-            getMicSize();
+    const size = getMicSize();
 
+    const mobile = window.innerWidth <= 700;
 
-        return {
+    return {
+        left:
+            (window.innerWidth - size.width) / 2,
 
-            left:
-                (
-                    window.innerWidth -
-                    size.width
-                ) / 2,
+        top:
+            (window.innerHeight - size.height) / 2
+            - (mobile ? 48 : 0),
 
-            top:
-                (
-                    window.innerHeight -
-                    size.height
-                ) / 2,
+        width: size.width,
+        height: size.height
+    };
 
-            width:
-                size.width,
-
-            height:
-                size.height
-
-        };
-
-    }
+}
 
 
     /* =====================================================
@@ -3790,5 +3749,205 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   revealFooter();
+
+});
+/* =========================================================
+   MPOWERTALK — INTERACTIVE VOICE HERO
+   Click a card -> update left text + speaker background
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const hero = document.getElementById("voiceHero");
+
+    if (!hero) return;
+
+    const background = document.getElementById("mpVoiceHeroBackground");
+    const eyebrow = document.getElementById("mpVoiceHeroEyebrow");
+    const title = document.getElementById("mpVoiceHeroTitle");
+    const description = document.getElementById("mpVoiceHeroDescription");
+
+    const cards = [
+        ...hero.querySelectorAll(".mp-voice-speaker-card")
+    ];
+
+    /*
+       Card 1 -> speaker-01-bg.png
+       Card 2 -> speaker-02-bg.png
+       Card 3 -> speaker-03-bg.png
+       Card 4 -> speaker-04-bg.png
+    */
+
+    const stories = [
+        {
+            eyebrow: "COURAGE TO SPEAK. FREEDOM TO GROW.",
+            title: 'Find Your <em>Voice.</em> Share Your <strong>Ideas.</strong>',
+            description:
+                "One honest idea can open a new path, build confidence and bring people together.",
+            background: "assets/images/mpowertalk-speaker-01-bg.png"
+        },
+        {
+            eyebrow: "IDEAS THAT MOVE US FORWARD.",
+            title: 'Make Every <em>Word</em> Count.',
+            description:
+                "Powerful conversations help people see possibilities and turn thoughts into action.",
+            background: "assets/images/mpowertalk-speaker-02-bg.png"
+        },
+        {
+            eyebrow: "WISDOM GROWS WHEN IT IS SHARED.",
+            title: 'A New View.<br><span class="mp-voice-title-line">A <em>New</em></span><strong>Possibility.</strong>',
+            description:
+                "Listen with curiosity. Share what you know. Make room for another perspective.",
+            background: "assets/images/mpowertalk-speaker-03-bg.png"
+        },
+        {
+            eyebrow: "EVERY VOICE CAN INSPIRE CHANGE.",
+            title: 'Your Story Can <em>Inspire</em> Someone.',
+            description:
+                "When people speak from experience, their stories can spark connection and meaningful change.",
+            background: "assets/images/mpowertalk-speaker-04-bg.png"
+        }
+    ];
+
+    
+let speakerTransitionRun = 0;
+
+function activateSpeaker(index) {
+    const story = stories[index];
+
+    if (!story || !cards[index]) return;
+
+    const run = ++speakerTransitionRun;
+
+    // Keep the selected card active
+    cards.forEach((card, cardIndex) => {
+        const active = cardIndex === index;
+
+        card.classList.toggle("is-active", active);
+        card.setAttribute("aria-pressed", String(active));
+    });
+
+    // Start the text transition
+    hero.classList.remove("is-changing");
+    void hero.offsetWidth;
+    hero.classList.add("is-changing");
+
+    // Update the left-side content
+    if (eyebrow) {
+        eyebrow.textContent = story.eyebrow;
+    }
+
+    if (title) {
+        title.innerHTML = story.title;
+    }
+
+    if (description) {
+        description.textContent = story.description;
+    }
+
+    // Load the new speaker background first
+    const nextImage = new Image();
+
+    nextImage.onload = () => {
+        // Ignore an older image if another card was clicked
+        if (run !== speakerTransitionRun) return;
+
+        if (!background) return;
+
+        const layer = background.closest(
+            ".mp-voice-hero-background"
+        );
+
+        if (!layer) {
+            background.src = story.background;
+            return;
+        }
+
+        // Remove any previous transition overlay
+        layer.querySelectorAll(
+            ".mp-voice-glitch-layer"
+        ).forEach(item => item.remove());
+
+        // Create the horizontal strip reveal
+        const reveal = document.createElement("div");
+        reveal.className = "mp-voice-glitch-layer";
+        reveal.setAttribute("aria-hidden", "true");
+
+        const stripCount = 12;
+
+        for (let i = 0; i < stripCount; i++) {
+            const strip = document.createElement("span");
+
+            const top = (i / stripCount) * 100;
+            const bottom = 100 - ((i + 1) / stripCount) * 100;
+
+            strip.className = "mp-voice-glitch-strip";
+
+            strip.style.backgroundImage =
+                `url("${story.background}")`;
+
+            strip.style.clipPath =
+                `inset(${top}% 0 ${bottom}% 0)`;
+
+            // Alternate strip movement directions
+            strip.style.setProperty(
+                "--strip-from",
+                i % 2 === 0 ? "100%" : "-100%"
+            );
+
+            strip.style.setProperty(
+                "--strip-delay",
+                `${i * 35}ms`
+            );
+
+            reveal.appendChild(strip);
+        }
+
+        layer.appendChild(reveal);
+
+        // Wait for the strips to reveal the new image
+        window.setTimeout(() => {
+            if (run !== speakerTransitionRun) return;
+
+            background.src = story.background;
+            reveal.remove();
+
+            layer.classList.remove("is-changing");
+        }, 1200);
+    };
+
+    nextImage.onerror = () => {
+        if (run !== speakerTransitionRun) return;
+
+        console.error(
+            "Speaker background not found:",
+            story.background
+        );
+    };
+
+    nextImage.src = story.background;
+}
+
+
+    /* Mouse click and keyboard support */
+    cards.forEach((card, index) => {
+
+        card.addEventListener("click", () => {
+            activateSpeaker(index);
+        });
+
+        card.addEventListener("keydown", event => {
+
+            if (event.key === "Enter" || event.key === " ") {
+
+                event.preventDefault();
+
+                activateSpeaker(index);
+
+            }
+
+        });
+
+    });
 
 });

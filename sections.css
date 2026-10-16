@@ -6787,3 +6787,804 @@
   }
 
 }
+/* =====================================================
+   MPOWERTALK — INTERACTIVE VOICE HERO
+   Updated layout: no mic, no overlap, muted green + coral
+===================================================== */
+
+.mp-voice-hero,
+.mp-voice-hero * {
+    box-sizing: border-box;
+}
+
+.mp-voice-hero {
+    --hero-cream: #fcf8ed;
+    --hero-green: #526f5e;
+    --hero-coral: #e98773;
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: min(850px, 100svh);
+    min-height: 680px;
+    overflow: hidden;
+    background: var(--hero-cream);
+    color: var(--hero-green);
+}
+
+/* BACKGROUND IMAGE */
+
+.mp-voice-hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    background: var(--hero-cream);
+}
+
+.mp-voice-hero-background img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 68% center;
+    transform: scale(1.015);
+    transition: opacity .45s ease, transform .7s ease;
+}
+
+.mp-voice-hero-background.is-changing img {
+    opacity: .35;
+    transform: scale(1.04);
+}
+
+/* CREAM WASH — keeps left text readable */
+
+.mp-voice-hero-wash {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        rgba(252,248,237,.99) 0%,
+        rgba(252,248,237,.97) 25%,
+        rgba(252,248,237,.86) 36%,
+        rgba(252,248,237,.35) 49%,
+        rgba(252,248,237,.04) 68%,
+        transparent 100%
+    );
+}
+
+/* LEFT COPY */
+
+.mp-voice-hero-copy {
+    position: absolute;
+    z-index: 8;
+    top: 50%;
+    left: clamp(30px, 4.5vw, 70px);
+    width: clamp(280px, 29%, 380px);
+    max-width: 380px;
+    transform: translateY(-50%);
+    animation: mpVoiceHeroIntro .8s .12s both;
+}
+
+@keyframes mpVoiceHeroIntro {
+    from {
+        opacity: 0;
+        transform: translateY(calc(-50% + 18px));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+
+.mp-voice-hero-eyebrow {
+    display: block;
+    width: fit-content;
+    margin-bottom: 18px;
+
+    color: #718d00;
+
+    font: 600 9px/1.6 "DM Mono", monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Thin olive-green underline */
+.mp-voice-hero-eyebrow::after {
+    content: "";
+    display: block;
+
+    width: 110px;
+    max-width: 100%;
+    height: 1px;
+
+    margin-top: 8px;
+
+    background: #718d00;
+    border-radius: 2px;
+}
+
+
+.mp-voice-hero-copy h1 {
+    margin: 0;
+    color: var(--hero-green);
+    font: 400 clamp(45px, 4.7vw, 68px)/.98 "Gloock", Georgia, serif;
+    letter-spacing: -1.8px;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.mp-voice-hero-copy h1 em {
+    display: block;
+    color: var(--hero-coral);
+    font-weight: 400;
+}
+
+.mp-voice-hero-copy h1 strong {
+    display: block;
+    color: var(--hero-green);
+    font-weight: 400;
+}
+
+.mp-voice-hero-copy p {
+    max-width: 340px;
+    margin: 16px 0 18px;
+    color: #52675c;
+    font: 400 19px/1.65 "Syne", sans-serif;
+}
+
+.mp-voice-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 42px;
+    padding: 0 19px;
+    border-radius: 30px;
+    background: var(--hero-coral);
+    color: #fff;
+    text-decoration: none;
+    font: 600 11px/1 "Syne", sans-serif;
+    transition: transform .25s ease, background .25s ease;
+}
+
+.mp-voice-hero-cta:hover {
+    transform: translateY(-3px);
+    background: #d87561;
+}
+
+.mp-voice-hero-cta span {
+    font-size: 16px;
+}
+
+/* MICROPHONE REMOVED — keep HTML untouched */
+
+.mp-voice-hero-mic {
+    display: none !important;
+}
+
+/* CARD LAYER */
+
+.mp-voice-hero-cards {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.mp-voice-speaker-card {
+    position: absolute;
+    width: clamp(105px, 10.5vw, 145px);
+    aspect-ratio: .78;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.95);
+    border-radius: 16px;
+    background: #e9e8dc;
+    box-shadow: 0 12px 32px rgba(35,57,43,.18);
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        left .45s ease,
+        right .45s ease,
+        top .45s ease,
+        bottom .45s ease,
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.mp-voice-speaker-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .55s ease;
+}
+
+.mp-voice-speaker-card:hover img,
+.mp-voice-speaker-card.is-active img {
+    transform: scale(1.055);
+}
+
+.mp-voice-speaker-card.is-active {
+    box-shadow:
+        0 14px 35px rgba(35,57,43,.22),
+        0 0 0 2px rgba(233,135,115,.9);
+}
+
+/* Keep cards on the RIGHT, away from the heading */
+
+.mp-voice-speaker-card[data-speaker="0"] {
+    left: 56%;
+    top: 17%;
+    right: auto;
+    bottom: auto;
+    transform: rotate(-4deg);
+}
+
+.mp-voice-speaker-card[data-speaker="1"] {
+    left: auto;
+    right: 5%;
+    top: 15%;
+    bottom: auto;
+    transform: rotate(4deg);
+}
+
+.mp-voice-speaker-card[data-speaker="2"] {
+    left: 56%;
+    right: auto;
+    top: auto;
+    bottom: 9%;
+    transform: rotate(3deg);
+}
+
+.mp-voice-speaker-card[data-speaker="3"] {
+    left: auto;
+    right: 5%;
+    top: auto;
+    bottom: 8%;
+    transform: rotate(-3deg);
+}
+
+/* Keep active and hover cards in their own positions */
+
+.mp-voice-speaker-card[data-speaker="0"]:hover,
+.mp-voice-speaker-card.is-active[data-speaker="0"] {
+    transform: rotate(-2deg) translateY(-4px) scale(1.025);
+}
+
+.mp-voice-speaker-card[data-speaker="1"]:hover,
+.mp-voice-speaker-card.is-active[data-speaker="1"] {
+    transform: rotate(2deg) translateY(-4px) scale(1.025);
+}
+
+.mp-voice-speaker-card[data-speaker="2"]:hover,
+.mp-voice-speaker-card.is-active[data-speaker="2"] {
+    transform: rotate(1deg) translateY(-4px) scale(1.025);
+}
+
+.mp-voice-speaker-card[data-speaker="3"]:hover,
+.mp-voice-speaker-card.is-active[data-speaker="3"] {
+    transform: rotate(-1deg) translateY(-4px) scale(1.025);
+}
+
+/* Card corner icon — no names or numbers */
+
+.mp-voice-card-play {
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: var(--hero-green);
+    background: rgba(255,255,255,.96);
+    font: 600 14px/1 "Syne", sans-serif;
+}
+
+/* Text transition when a card is clicked */
+
+.mp-voice-hero.is-changing .mp-voice-hero-copy {
+    animation: mpVoiceCopySwap .4s ease;
+}
+
+@keyframes mpVoiceCopySwap {
+    from {
+        opacity: .35;
+        translate: 0 8px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* SCROLL LABEL */
+
+.mp-voice-hero-scroll {
+    position: absolute;
+    z-index: 7;
+    left: 50%;
+    bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(82,111,94,.8);
+    font: 500 8px/1 "DM Mono", monospace;
+    letter-spacing: 2px;
+    transform: translateX(-50%);
+}
+
+.mp-voice-hero-scroll span {
+    width: 24px;
+    height: 1px;
+    background: var(--hero-coral);
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) and (min-width: 701px) {
+    .mp-voice-hero {
+        min-height: 650px;
+    }
+
+    .mp-voice-hero-copy {
+        left: 3%;
+        width: 31%;
+    }
+
+    .mp-voice-hero-copy h1 {
+        font-size: clamp(39px, 4.6vw, 50px);
+    }
+
+    .mp-voice-speaker-card {
+        width: clamp(90px, 11vw, 115px);
+    }
+
+    .mp-voice-speaker-card[data-speaker="0"],
+    .mp-voice-speaker-card[data-speaker="2"] {
+        left: 53%;
+    }
+
+    .mp-voice-speaker-card[data-speaker="1"],
+    .mp-voice-speaker-card[data-speaker="3"] {
+        right: 4%;
+    }
+}
+
+/* MOBILE HERO — CARDS HIGHER + EVEN ROWS */
+
+@media (max-width: 700px) {
+    .mp-voice-hero {
+        height: 650px !important;
+        min-height: 650px !important;
+        overflow: hidden;
+    }
+
+    /* Keep the speaker's face visible in the background */
+    .mp-voice-hero-background img {
+        object-fit: cover !important;
+        object-position: 76% center !important;
+        transform: scale(1.02);
+    }
+
+    /* Cream on the left, clearer portrait on the right */
+    .mp-voice-hero-wash {
+        background: linear-gradient(
+            90deg,
+            rgba(252,248,237,.99) 0%,
+            rgba(252,248,237,.96) 37%,
+            rgba(252,248,237,.78) 49%,
+            rgba(252,248,237,.35) 65%,
+            rgba(252,248,237,.06) 82%,
+            transparent 100%
+        ) !important;
+    }
+
+    /* Left-side text stays in place */
+    .mp-voice-hero-copy {
+        position: absolute !important;
+        top: 39% !important;
+        left: 4.5% !important;
+        width: 44% !important;
+        max-width: none !important;
+        transform: translateY(-50%) !important;
+        z-index: 8;
+    }
+
+    .mp-voice-hero-copy h1 {
+        font-size: clamp(29px, 8.2vw, 37px) !important;
+        line-height: .99 !important;
+        letter-spacing: -1.2px !important;
+    }
+
+    .mp-voice-hero-copy p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin: 12px 0 12px !important;
+    max-width: 100% !important;
+}
+
+    .mp-voice-hero-cta {
+        min-height: 33px !important;
+        padding: 0 11px !important;
+        font-size: 8px !important;
+    }
+
+    /* Keep the microphone hidden */
+    .mp-voice-hero-mic {
+        display: none !important;
+    }
+
+    /* Cards stay layered over the background */
+    .mp-voice-hero-cards {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 7;
+        pointer-events: none;
+    }
+
+    .mp-voice-speaker-card {
+        position: absolute !important;
+        width: clamp(66px, 18vw, 78px) !important;
+        aspect-ratio: .78 !important;
+        border-radius: 11px !important;
+        overflow: hidden;
+        padding: 0 !important;
+        transform: none !important;
+        pointer-events: auto;
+    }
+
+    .mp-voice-speaker-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* FIRST ROW — aligned horizontally */
+    .mp-voice-speaker-card[data-speaker="0"] {
+        left: 55% !important;
+        right: auto !important;
+        top: 35% !important;
+        bottom: auto !important;
+    }
+
+    .mp-voice-speaker-card[data-speaker="1"] {
+        left: auto !important;
+        right: 3.5% !important;
+        top: 35% !important;
+        bottom: auto !important;
+    }
+
+    /* SECOND ROW — starts below the first row */
+    .mp-voice-speaker-card[data-speaker="2"] {
+        left: 55% !important;
+        right: auto !important;
+        top: 54% !important;
+        bottom: auto !important;
+    }
+
+    .mp-voice-speaker-card[data-speaker="3"] {
+        left: auto !important;
+        right: 3.5% !important;
+        top: 54% !important;
+        bottom: auto !important;
+    }
+
+    .mp-voice-card-play {
+        width: 18px !important;
+        height: 18px !important;
+        right: 4px !important;
+        bottom: 4px !important;
+        font-size: 10px !important;
+    }
+
+    .mp-voice-hero-scroll {
+        display: none !important;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 390px) {
+    .mp-voice-hero {
+        height: 630px !important;
+        min-height: 630px !important;
+    }
+
+    .mp-voice-hero-copy {
+        left: 4% !important;
+        width: 45% !important;
+    }
+
+    .mp-voice-hero-copy h1 {
+        font-size: 28px !important;
+    }
+
+   .mp-voice-hero-copy p {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    margin: 10px 0 12px !important;
+}
+
+    .mp-voice-speaker-card {
+        width: 62px !important;
+    }
+
+    .mp-voice-speaker-card[data-speaker="0"],
+    .mp-voice-speaker-card[data-speaker="1"] {
+        top: 35% !important;
+    }
+
+    .mp-voice-speaker-card[data-speaker="2"],
+    .mp-voice-speaker-card[data-speaker="3"] {
+        top: 54% !important;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .mp-voice-hero *,
+    .mp-voice-hero *::before,
+    .mp-voice-hero *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+/* =====================================================
+   HERO HEADING — BIGGER TYPE + CONTROLLED LINE BREAKS
+===================================================== */
+
+/* Desktop heading */
+.mp-voice-hero-copy {
+    width: clamp(360px, 36vw, 480px) !important;
+}
+
+.mp-voice-hero-copy h1 {
+    font-size: clamp(52px, 5.2vw, 76px) !important;
+    line-height: .98 !important;
+    letter-spacing: -2px !important;
+    color: #526f5e !important;
+}
+
+/* Keep "A New" together on one line */
+.mp-voice-hero-copy h1 .mp-voice-title-line {
+    display: block;
+    white-space: nowrap;
+}
+
+.mp-voice-hero-copy h1 .mp-voice-title-line em {
+    display: inline !important;
+    color: #e98773 !important;
+    font-style: italic;
+}
+
+.mp-voice-hero-copy h1 strong {
+    display: block;
+    color: #526f5e !important;
+    font-weight: 400;
+}
+
+/* =====================================================
+   MPOWERTALK — HERO LEFT TEXT
+   BIGGER HEADING + DESCRIPTION + CTA
+===================================================== */
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .mp-voice-hero-copy {
+        left: 4% !important;
+        width: 49% !important;
+        max-width: none !important;
+        z-index: 8 !important;
+    }
+
+    /* Main heading */
+    .mp-voice-hero-copy h1 {
+        font-size: clamp(35px, 9.2vw, 43px) !important;
+        line-height: 1 !important;
+        letter-spacing: -1.2px !important;
+    }
+
+    .mp-voice-hero-copy h1 .mp-voice-title-line {
+        white-space: nowrap !important;
+    }
+
+    /* Description */
+    .mp-voice-hero-copy p {
+        font-size: 14.5px !important;
+        line-height: 1.55 !important;
+        font-weight: 400 !important;
+        margin: 14px 0 16px !important;
+        max-width: 100% !important;
+    }
+
+    /* Discover the Stories button */
+    .mp-voice-hero-cta {
+        min-height: 44px !important;
+        padding: 0 13px !important;
+        gap: 9px !important;
+        font-size: 12.5px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+
+    .mp-voice-hero-cta span {
+        font-size: 18px !important;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 390px) {
+    .mp-voice-hero-copy {
+        left: 4% !important;
+        width: 49% !important;
+    }
+
+    .mp-voice-hero-copy h1 {
+        font-size: 32px !important;
+        line-height: 1 !important;
+        letter-spacing: -.9px !important;
+    }
+
+    .mp-voice-hero-copy p {
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
+        margin: 12px 0 14px !important;
+    }
+
+    .mp-voice-hero-cta {
+        min-height: 41px !important;
+        padding: 0 10px !important;
+        gap: 7px !important;
+        font-size: 11.5px !important;
+    }
+
+    .mp-voice-hero-cta span {
+        font-size: 16px !important;
+    }
+}
+
+/* TABLET + DESKTOP — preserve existing layout */
+@media (min-width: 701px) {
+    .mp-voice-hero-copy h1 {
+        font-size: clamp(52px, 5.2vw, 76px) !important;
+    }
+}
+/* =====================================================
+   FIX: MOBILE HERO TEXT OVERLAPPING NAVBAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* Anchor text below the fixed navbar */
+    .mp-voice-hero-copy {
+        top: 100px !important;
+        left: 4% !important;
+        width: 48% !important;
+        max-width: none !important;
+        transform: none !important;
+        z-index: 8 !important;
+    }
+
+    /* Keep the eyebrow fully visible */
+    .mp-voice-hero-eyebrow {
+        display: block !important;
+        max-width: 100% !important;
+        margin-bottom: 12px !important;
+        font-size: 8px !important;
+        line-height: 1.5 !important;
+        letter-spacing: 1.2px !important;
+        overflow-wrap: anywhere;
+    }
+
+    /* Keep longer speaker headings within the text column */
+    .mp-voice-hero-copy h1 {
+        font-size: clamp(29px, 8vw, 36px) !important;
+        line-height: 1 !important;
+        letter-spacing: -1px !important;
+        overflow-wrap: normal !important;
+    }
+
+    .mp-voice-hero-copy h1 em,
+    .mp-voice-hero-copy h1 strong {
+        max-width: 100%;
+    }
+
+    /* Small gap between heading, description and button */
+    .mp-voice-hero-copy p {
+        margin: 12px 0 14px !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* Small phones */
+@media (max-width: 390px) {
+
+    .mp-voice-hero-copy {
+        top: 94px !important;
+        left: 4% !important;
+        width: 47% !important;
+    }
+
+    .mp-voice-hero-eyebrow {
+        font-size: 7px !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .mp-voice-hero-copy h1 {
+        font-size: 28px !important;
+        line-height: 1 !important;
+    }
+
+    .mp-voice-hero-copy p {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* =====================================================
+   MPOWERTALK — HORIZONTAL SPEAKER IMAGE REVEAL
+===================================================== */
+
+.mp-voice-hero-background {
+    isolation: isolate;
+}
+
+.mp-voice-glitch-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.mp-voice-glitch-strip {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
+    transform: translateX(var(--strip-from, 100%));
+
+    will-change: transform;
+
+    animation:
+        mpVoiceHorizontalStripReveal
+        720ms
+        cubic-bezier(.16, 1, .3, 1)
+        var(--strip-delay, 0ms)
+        both;
+}
+
+@keyframes mpVoiceHorizontalStripReveal {
+    from {
+        transform: translateX(var(--strip-from, 100%));
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .mp-voice-glitch-strip {
+        animation-duration: 180ms;
+        animation-delay: 0ms;
+    }
+}
