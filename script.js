@@ -364,38 +364,40 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
 
-/* MOBILE: heading LEFT + mic RIGHT → mic travels LEFT-DOWN → cards */
+ointerEvents = "none";
+/* MOBILE — SLOW, SMOOTH MIC STORY SEQUENCE */
 
-const introProgress = ease(p / 0.10);
+const introProgress = ease(p / 0.14);
 
-/* STAGE 1 — Heading fades in, then fades out */
-const beliefFadeOut = 1 - ease((p - 0.30) / 0.13);
+/* STAGE 1 — HEADING */
+const beliefFadeOut = 1 - ease((p - 0.32) / 0.14);
 
 belief.style.opacity = introProgress * beliefFadeOut;
+
 belief.style.transform =
     `translateY(${16 * (1 - introProgress)}px)`;
 
-/* STAGE 2 — Mic fades in on RIGHT, then travels LEFT-DOWN */
-const micTravel = ease((p - 0.12) / 0.35);
+
+/* STAGE 2 — MIC TRAVELS SLOWLY LEFT-DOWN */
+const micTravel = ease((p - 0.12) / 0.42);
 
 mic.style.opacity = introProgress;
 mic.style.transform = "none";
 
 micStage.style.transform =
-    `translate3d(${-48 * micTravel}vw, ${23 * micTravel}vh, 0) translateY(-50%)`;
+    `translate3d(${-52 * micTravel}vw, ${23 * micTravel}vh, 0) translateY(-50%)`;
 
-/* STAGE 3 — FOUR CARDS APPEAR ONE BY ONE, MORE SLOWLY */
 
-/* Keep all four cards visible until the sequence finishes */
-const cardsFadeOut = 1 - ease((p - 0.91) / 0.03);
+/* STAGE 3 — FOUR CARDS REVEAL ONE BY ONE */
+const cardsFadeOut = 1 - ease((p - 0.94) / 0.06);
 
 cards.forEach((card, i) => {
 
-    /* Larger gap between each card's starting time */
-    const cardStart = 0.48 + i * 0.09;
+    /* More breathing room between cards */
+    const cardStart = 0.48 + i * 0.095;
 
-    /* Smooth, slower reveal */
-    const show = ease((p - cardStart) / 0.14);
+    /* Slower fade-in for each card */
+    const show = ease((p - cardStart) / 0.17);
 
     const cardOpacity = show * cardsFadeOut;
 
@@ -408,9 +410,8 @@ cards.forEach((card, i) => {
 });
 
 
-/* STAGE 4 — ABOUT APPEARS AFTER THE CARDS */
-/* Pause after the cards before revealing About */
-const aboutProgress = ease((p - 0.985) / 0.015);
+/* STAGE 4 — ABOUT FADES IN GRADUALLY */
+const aboutProgress = ease((p - 0.91) / 0.16);
 
 about.style.opacity = aboutProgress;
 
@@ -422,9 +423,11 @@ if (aboutInner) {
         `translateY(${20 * (1 - aboutProgress)}px)`;
 }
 
-        if (note) {
-            note.style.opacity = 1 - ease(p / 0.15);
-        }
+
+/* SCROLL HINT */
+if (note) {
+    note.style.opacity = 1 - ease(p / 0.3);
+}
     }
 
     function requestUpdate() {

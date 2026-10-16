@@ -3790,8 +3790,9 @@ body.site-ready .nav-actions {
 #voiceStory .voice-about-inner {
     position: absolute;
     top: 46%;
-    right: 4%;
-    width: 62%;
+    left: 38%;
+    right: auto;
+    width: 60%;
     max-width: none;
     min-width: 0;
     margin: 0;
@@ -3870,8 +3871,9 @@ body.site-ready .nav-actions {
 
 #voiceStory .voice-about-inner {
     top: 42%;
-    right: 2%;
-    width: 76%;
+    left: 35%;
+    right: auto;
+    width: 63%;
     max-width: 100%;
     min-width: 0;
     overflow-wrap: anywhere;
@@ -9496,8 +9498,8 @@ and
 @media (max-width: 700px) {
 
     #voiceStory.voice-story {
-        height: 1000px !important;
-        min-height: 1000px !important;
+        height: 2600px !important;
+        min-height: 2600px !important;
         max-height: none !important;
         width: 100%;
         overflow: visible;
